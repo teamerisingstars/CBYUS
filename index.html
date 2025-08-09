@@ -7,14 +7,378 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ROCKET SHIP CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 18px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, 
+                rgba(17, 24, 39, 0.95) 0%,
+                rgba(30, 30, 60, 0.8) 20%,
+                rgba(45, 0, 85, 0.6) 40%,
+                rgba(30, 30, 60, 0.8) 60%,
+                rgba(17, 24, 39, 0.95) 100%);
+            border-radius: 12px;
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            box-shadow: 
+                inset 0 0 20px rgba(138, 43, 226, 0.4),
+                inset 0 0 30px rgba(0, 191, 255, 0.2);
+            position: relative;
+        }
+        
+        ::-webkit-scrollbar-track:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                transparent 0%,
+                rgba(138, 43, 226, 0.6) 10%,
+                rgba(0, 191, 255, 0.8) 30%,
+                rgba(255, 20, 147, 0.6) 50%,
+                rgba(0, 191, 255, 0.8) 70%,
+                rgba(138, 43, 226, 0.6) 90%,
+                transparent 100%);
+            transform: translateX(-50%);
+            animation: trajectory-glow 4s ease-in-out infinite alternate;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: 
+                radial-gradient(ellipse at center top, 
+                    rgba(255, 255, 255, 0.9) 0%,
+                    rgba(138, 43, 226, 0.9) 30%,
+                    rgba(0, 191, 255, 0.8) 60%,
+                    rgba(255, 20, 147, 0.9) 100%),
+                linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.3) 0%,
+                    rgba(138, 43, 226, 0.8) 20%,
+                rgba(0, 191, 255, 0.9) 50%,
+                    rgba(255, 100, 0, 0.8) 80%,
+                rgba(255, 20, 147, 0.9) 100%);
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 
+                0 0 20px rgba(138, 43, 226, 0.9),
+                0 0 30px rgba(0, 191, 255, 0.7),
+                0 0 40px rgba(255, 20, 147, 0.5),
+                inset 0 0 15px rgba(255, 255, 255, 0.3),
+                inset 0 -5px 10px rgba(255, 100, 0, 0.6);
+            animation: rocket-thrust 2s ease-in-out infinite alternate;
+            position: relative;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: 
+                radial-gradient(ellipse at center top, 
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(138, 43, 226, 1) 25%,
+                rgba(0, 191, 255, 1) 50%,
+                    rgba(255, 20, 147, 1) 100%),
+                linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.5) 0%,
+                    rgba(138, 43, 226, 1) 15%,
+                    rgba(0, 191, 255, 1) 40%,
+                    rgba(255, 150, 0, 1) 70%,
+                rgba(255, 20, 147, 1) 100%);
+            box-shadow: 
+                0 0 30px rgba(138, 43, 226, 1),
+                0 0 45px rgba(0, 191, 255, 0.9),
+                0 0 60px rgba(255, 20, 147, 0.8),
+                0 0 80px rgba(255, 100, 0, 0.7),
+                inset 0 0 20px rgba(255, 255, 255, 0.5),
+                inset 0 -8px 15px rgba(255, 150, 0, 0.8);
+            transform: scale(1.1);
+            animation: rocket-boost 1s ease-in-out infinite alternate;
+        }
+        
+        ::-webkit-scrollbar-thumb:active {
+            background: 
+                radial-gradient(ellipse at center top, 
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(255, 100, 0, 1) 20%,
+                    rgba(255, 20, 147, 1) 40%,
+                    rgba(138, 43, 226, 1) 70%,
+                    rgba(0, 191, 255, 1) 100%);
+            box-shadow: 
+                0 0 40px rgba(255, 100, 0, 1),
+                0 0 60px rgba(255, 20, 147, 1),
+                0 0 80px rgba(138, 43, 226, 0.9),
+                0 0 100px rgba(0, 191, 255, 0.8),
+                inset 0 0 25px rgba(255, 255, 255, 0.7),
+                inset 0 -10px 20px rgba(255, 200, 0, 1);
+            transform: scale(1.2);
+        }
+        
+        @keyframes rocket-thrust {
+            0% {
+                box-shadow: 
+                    0 0 20px rgba(138, 43, 226, 0.9),
+                    0 0 30px rgba(0, 191, 255, 0.7),
+                    0 0 40px rgba(255, 20, 147, 0.5),
+                    inset 0 0 15px rgba(255, 255, 255, 0.3),
+                    inset 0 -5px 10px rgba(255, 100, 0, 0.6);
+            }
+            100% {
+                box-shadow: 
+                    0 0 30px rgba(138, 43, 226, 1),
+                    0 0 45px rgba(0, 191, 255, 0.9),
+                    0 0 60px rgba(255, 20, 147, 0.7),
+                    0 0 25px rgba(255, 100, 0, 0.8),
+                    inset 0 0 20px rgba(255, 255, 255, 0.4),
+                    inset 0 -8px 15px rgba(255, 150, 0, 0.8);
+            }
+        }
+        
+        @keyframes rocket-boost {
+            0% {
+                box-shadow: 
+                    0 0 30px rgba(138, 43, 226, 1),
+                    0 0 45px rgba(0, 191, 255, 0.9),
+                    0 0 60px rgba(255, 20, 147, 0.8),
+                    0 0 80px rgba(255, 100, 0, 0.7),
+                    inset 0 0 20px rgba(255, 255, 255, 0.5),
+                    inset 0 -8px 15px rgba(255, 150, 0, 0.8);
+                transform: scale(1.1);
+            }
+            100% {
+                box-shadow: 
+                    0 0 40px rgba(138, 43, 226, 1),
+                    0 0 60px rgba(0, 191, 255, 1),
+                    0 0 80px rgba(255, 20, 147, 0.9),
+                    0 0 100px rgba(255, 100, 0, 0.8),
+                    0 0 120px rgba(255, 200, 0, 0.6),
+                    inset 0 0 25px rgba(255, 255, 255, 0.6),
+                    inset 0 -10px 20px rgba(255, 200, 0, 1);
+                transform: scale(1.15);
+            }
+        }
+        
+        @keyframes trajectory-glow {
+            0% {
+                opacity: 0.6;
+                box-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+            }
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 20px rgba(0, 191, 255, 1);
+            }
+        }
+        
+        /* SCROLLBAR CORNER DECORATIONS */
+        ::-webkit-scrollbar-corner {
+            background: linear-gradient(45deg, 
+                rgba(17, 24, 39, 0.9) 0%,
+                rgba(138, 43, 226, 0.4) 50%,
+                rgba(0, 191, 255, 0.3) 100%);
+            border-radius: 8px;
+            border: 1px solid rgba(138, 43, 226, 0.5);
+        }
+        
+
+        
+        /* ENHANCED SCROLLBAR BUTTON STYLING */
+        ::-webkit-scrollbar-button {
+            display: block;
+            height: 20px;
+            background: linear-gradient(45deg, 
+                rgba(138, 43, 226, 0.8) 0%,
+                rgba(0, 191, 255, 0.8) 50%,
+                rgba(255, 20, 147, 0.8) 100%);
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 0 15px rgba(138, 43, 226, 0.6),
+                inset 0 0 10px rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+        
+        ::-webkit-scrollbar-button:hover {
+            background: linear-gradient(45deg, 
+                rgba(138, 43, 226, 1) 0%,
+                rgba(0, 191, 255, 1) 50%,
+                rgba(255, 20, 147, 1) 100%);
+            box-shadow: 
+                0 0 25px rgba(138, 43, 226, 0.9),
+                0 0 35px rgba(0, 191, 255, 0.7),
+                    inset 0 0 15px rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+        
+        ::-webkit-scrollbar-button:vertical:start:decrement {
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(138, 43, 226, 0.9) 50%,
+                rgba(255, 100, 0, 0.8) 100%);
+        }
+        
+        ::-webkit-scrollbar-button:vertical:end:increment {
+            background: linear-gradient(180deg, 
+                rgba(255, 100, 0, 0.8) 0%,
+                rgba(0, 191, 255, 0.9) 50%,
+                rgba(255, 20, 147, 0.9) 100%);
+        }
+        
+        /* Firefox Scrollbar */
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(138, 43, 226, 0.9) rgba(17, 24, 39, 0.9);
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0a0a0a; /* Dark background for futuristic feel */
             color: #e0e0e0; /* Light grey text */
         }
+        
+        /* ULTRA SMOOTH SCROLLING */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+        
+        /* SEAMLESS SECTION TRANSITIONS */
+        section, main, header {
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        /* NAVBAR FLOATING EFFECT */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        /* DYNAMIC NAVBAR STATES */
+        .navbar-scrolled {
+            backdrop-filter: blur(25px) saturate(180%);
+            box-shadow: 
+                0 10px 40px rgba(138, 43, 226, 0.4),
+                0 0 60px rgba(0, 191, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transform: translateY(0);
+        }
+        
+        .navbar-hidden {
+            transform: translateY(-100%);
+        }
+        
+        /* CONTENT SPACING FOR FIXED NAVBAR */
+        main {
+            margin-top: 100px;
+        }
+        
+        /* INSANE TICKER ANIMATION */
+        .ticker-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .ticker-content {
+            display: inline-block;
+            animation: ticker-scroll 30s linear infinite;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: white;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+        }
+        
+        .ticker-item {
+            display: inline-block;
+            padding: 0 3rem;
+            background: linear-gradient(90deg, 
+                rgba(138, 43, 226, 0.8) 0%,
+                rgba(0, 191, 255, 0.8) 50%,
+                rgba(255, 20, 147, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: ticker-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes ticker-scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        @keyframes ticker-glow {
+            0% {
+                text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+                filter: brightness(1);
+            }
+            100% {
+                text-shadow: 
+                    0 0 20px rgba(138, 43, 226, 1),
+                    0 0 30px rgba(0, 191, 255, 0.8);
+                filter: brightness(1.2);
+            }
+        }
+        
+        /* LIVE CODING ANIMATION */
+        .typing-demo {
+            position: relative;
+        }
+        
+        .code-line {
+            opacity: 0;
+            animation: type-in 0.8s ease-out forwards;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .code-line:nth-child(1) { animation-delay: 0s; }
+        .code-line:nth-child(2) { animation-delay: 1s; }
+        .code-line:nth-child(3) { animation-delay: 2s; }
+        .code-line:nth-child(4) { animation-delay: 3s; }
+        .code-line:nth-child(5) { animation-delay: 4s; }
+        
+        .cursor-blink {
+            display: inline-block;
+            animation: blink 1s infinite, cursor-move 5s ease-in-out infinite;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+            animation-delay: 5s;
+        }
+        
+        @keyframes type-in {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        @keyframes cursor-move {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(20px); }
+            50% { transform: translateX(40px); }
+            75% { transform: translateX(60px); }
+        }
         .gradient-text {
             background: linear-gradient(45deg, #8a2be2, #00bfff); /* Blue-purple gradient */
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .btn-primary {
@@ -159,9 +523,493 @@
             margin-top: 0.5rem;
             display: none;
         }
+        
+        /* EPIC PARTICLE SYSTEM */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            color: rgba(138, 43, 226, 0.6);
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            animation: float 15s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* MATRIX RAIN EFFECT */
+        .matrix-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            opacity: 0.1;
+        }
+        
+        .matrix-column {
+            position: absolute;
+            top: -100px;
+            color: #00ff41;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 14px;
+            animation: matrix-fall linear infinite;
+        }
+        
+        @keyframes matrix-fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        
+        /* GLITCH EFFECT - FIXED FOR MOBILE */
+        .glitch {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .glitch::before {
+            animation: glitch-1 3s infinite;
+            color: rgba(255, 0, 0, 0.7);
+            z-index: -1;
+        }
+        
+        .glitch::after {
+            animation: glitch-2 3s infinite;
+            color: rgba(0, 255, 255, 0.7);
+            z-index: -2;
+        }
+        
+        @keyframes glitch-1 {
+            0%, 14%, 15%, 49%, 50%, 99%, 100% {
+                transform: translate(0);
+                opacity: 0;
+            }
+            15%, 49% {
+                transform: translate(-1px, 1px);
+                opacity: 0.8;
+            }
+        }
+        
+        @keyframes glitch-2 {
+            0%, 20%, 21%, 62%, 63%, 99%, 100% {
+                transform: translate(0);
+                opacity: 0;
+            }
+            21%, 62% {
+                transform: translate(1px, -1px);
+                opacity: 0.8;
+            }
+        }
+        
+        /* MOBILE OPTIMIZATIONS */
+        @media (max-width: 768px) {
+            .glitch::before,
+            .glitch::after {
+                display: none; /* Disable glitch on mobile for better visibility */
+            }
+            
+            .particles-container {
+                display: none; /* Reduce particles on mobile for performance */
+            }
+            
+            .matrix-container {
+                opacity: 0.05; /* Reduce matrix effect on mobile */
+            }
+            
+            .neon-glow {
+                animation: none; /* Disable intensive animations on mobile */
+                text-shadow: 0 0 10px currentColor;
+            }
+            
+            .float-animation {
+                animation: none; /* Disable floating animations on mobile */
+            }
+            
+            /* Hero section mobile fixes */
+            main {
+                padding: 3rem 1.5rem;
+            }
+            
+            h1 {
+                line-height: 1.1 !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            .gradient-text {
+                background: linear-gradient(45deg, #8a2be2, #00bfff);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            
+            /* Better button spacing on mobile */
+            .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+                margin-top: 1rem;
+            }
+            
+            /* Reduce padding on cards for mobile */
+            .p-8 {
+                padding: 1.5rem;
+            }
+            
+            .p-10 {
+                padding: 2rem;
+            }
+            
+            /* Better text sizing for mobile */
+            .text-5xl {
+                font-size: 2.5rem;
+            }
+            
+            .text-6xl {
+                font-size: 3rem;
+            }
+            
+            .text-7xl {
+                font-size: 3.5rem;
+            }
+        }
+        
+        /* NEON GLOW EFFECTS */
+        .neon-glow {
+            text-shadow: 
+                0 0 5px currentColor,
+                0 0 10px currentColor,
+                0 0 20px currentColor,
+                0 0 40px currentColor;
+            animation: neon-flicker 2s infinite alternate;
+        }
+        
+        @keyframes neon-flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.8;
+            }
+        }
+        
+        /* FLOATING ANIMATION */
+        .float-animation {
+            animation: float-gentle 6s ease-in-out infinite;
+        }
+        
+        @keyframes float-gentle {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        /* PULSE GLOW */
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(138, 43, 226, 0.8);
+            }
+        }
+        
+        /* INSANE 3D PERSPECTIVE */
+        .perspective-container {
+            perspective: 1000px;
+            perspective-origin: center center;
+        }
+        
+        .transform-3d {
+            transform-style: preserve-3d;
+        }
+        
+        /* HOLOGRAPHIC EFFECTS */
+        .holographic {
+            position: relative;
+            background: linear-gradient(45deg, 
+                rgba(255, 0, 150, 0.1),
+                rgba(0, 255, 255, 0.1),
+                rgba(255, 255, 0, 0.1),
+                rgba(150, 0, 255, 0.1));
+            background-size: 400% 400%;
+            animation: holographic-shift 3s ease infinite;
+        }
+        
+        @keyframes holographic-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .holographic::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%);
+            background-size: 200% 200%;
+            animation: holographic-sweep 2s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes holographic-sweep {
+            0% { background-position: -200% -200%; }
+            100% { background-position: 200% 200%; }
+        }
+        
+        /* CRAZY MORPHING TEXT */
+        .morphing-text {
+            animation: text-morph 4s ease-in-out infinite;
+        }
+        
+        @keyframes text-morph {
+            0%, 100% { 
+                transform: perspective(400px) rotateY(0deg) rotateX(0deg);
+                text-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+            }
+            25% { 
+                transform: perspective(400px) rotateY(15deg) rotateX(5deg);
+                text-shadow: -10px 5px 30px rgba(0, 191, 255, 0.8);
+            }
+            50% { 
+                transform: perspective(400px) rotateY(0deg) rotateX(-5deg);
+                text-shadow: 0 -5px 25px rgba(255, 20, 147, 0.8);
+            }
+            75% { 
+                transform: perspective(400px) rotateY(-15deg) rotateX(5deg);
+                text-shadow: 10px 5px 30px rgba(50, 255, 50, 0.8);
+            }
+        }
+        
+        /* INSANE LOADING SCREEN */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3), transparent 50%),
+                radial-gradient(circle at 40% 70%, rgba(88, 196, 221, 0.3), transparent 50%),
+                linear-gradient(135deg, #0a0a0a, #1a1a2e, #16213e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 1s ease-out;
+            animation: loading-bg-pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes loading-bg-pulse {
+            0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+            50% { filter: hue-rotate(90deg) brightness(1.2); }
+        }
+        
+        /* INSANE 3D FLOATING */
+        @keyframes float-3d {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotateX(0deg) rotateY(0deg);
+            }
+            25% { 
+                transform: translateY(-30px) translateX(20px) rotateX(10deg) rotateY(5deg);
+            }
+            50% { 
+                transform: translateY(-20px) translateX(-15px) rotateX(-5deg) rotateY(-10deg);
+            }
+            75% { 
+                transform: translateY(-40px) translateX(10px) rotateX(15deg) rotateY(8deg);
+            }
+        }
+        
+        /* MOUSE TRACKING EFFECTS */
+        .mouse-tracker {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+            transition: all 0.1s ease;
+            mix-blend-mode: screen;
+        }
+        
+        /* INSANE CARD EFFECTS */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+        
+        .card-3d:hover {
+            transform: perspective(1000px) rotateY(15deg) rotateX(5deg) translateZ(50px);
+            box-shadow: 
+                -20px 20px 50px rgba(138, 43, 226, 0.4),
+                -40px 40px 100px rgba(0, 191, 255, 0.2);
+        }
+        
+        /* CYBERPUNK SCAN LINES */
+        .scan-lines {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scan-lines::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                transparent 50%,
+                rgba(0, 255, 0, 0.03) 50%,
+                rgba(0, 255, 0, 0.05) 51%,
+                transparent 52%
+            );
+            background-size: 100% 4px;
+            animation: scan-lines 0.1s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes scan-lines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
+        }
+        
+        /* ENERGY PULSE BUTTONS */
+        .energy-button {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .energy-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+            transition: all 0.6s ease;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+        
+        .energy-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(138, 43, 226, 0.3);
+            border-top: 3px solid #8a2be2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-progress {
+            width: 300px;
+            height: 4px;
+            background: rgba(138, 43, 226, 0.3);
+            border-radius: 2px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        
+        .loading-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(45deg, #8a2be2, #00bfff);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between">
+
+    <!-- EPIC LOADING SCREEN -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2 class="text-2xl font-black gradient-text mb-4">INITIALIZING REVOLUTION...</h2>
+            <div class="loading-progress">
+                <div class="loading-bar" id="loadingBar"></div>
+            </div>
+            <p class="text-gray-400 text-sm mt-4" id="loadingText">Calibrating awesome levels...</p>
+        </div>
+    </div>
+
+    <!-- MATRIX RAIN BACKGROUND -->
+    <div class="matrix-container" id="matrixContainer"></div>
+    
+    <!-- PARTICLE SYSTEM -->
+    <div class="particles-container" id="particlesContainer"></div>
+    
+    <!-- MOUSE TRACKER -->
+    <div class="mouse-tracker" id="mouseTracker"></div>
 
     <!-- Launch Popup -->
     <div class="launch-popup" id="launchPopup">
@@ -196,62 +1044,161 @@
         </div>
     </div>
 
-    <header class="w-full py-4 px-6 md:px-12 flex justify-between items-center bg-gray-900 bg-opacity-50 backdrop-blur-sm rounded-b-lg shadow-lg">
-        <div class="flex items-center space-x-3">
-            <img src="Gemini_Generated_Image_k6fdtfk6fdtfk6fd.png" alt="Cbyus Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full">
-            <span class="text-2xl md:text-3xl font-bold gradient-text">Cbyus</span>
-        </div>
-        <nav class="hidden md:flex space-x-8">
-            <a href="#features" class="text-gray-300 hover:text-white transition duration-300">Features</a>
-            <a href="#projects" class="text-gray-300 hover:text-white transition duration-300">Projects</a>
-            <a href="#about" class="text-gray-300 hover:text-white transition duration-300">About Us</a>
-            <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
-        </nav>
-        <button class="md:hidden text-white focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-        </button>
-    </header>
+                 <header class="w-full py-4 px-6 md:px-12 flex justify-between items-center relative" style="
+         background: linear-gradient(135deg, 
+             rgba(10, 10, 10, 0.95) 0%,
+             rgba(138, 43, 226, 0.15) 50%,
+             rgba(0, 191, 255, 0.15) 100%);
+         backdrop-filter: blur(20px) saturate(180%);
+         border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+         box-shadow: 
+             0 4px 20px rgba(138, 43, 226, 0.2),
+             0 0 40px rgba(0, 191, 255, 0.1);
+     ">
+         <!-- LOGO SECTION -->
+         <div class="flex items-center space-x-3 relative z-20">
+             <div class="relative">
+                 <img src="Gemini_Generated_Image_k6fdtfk6fdtfk6fd.png" alt="Cbyus Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-purple-400/60 hover:border-cyan-400 transition-all duration-300 hover:scale-110" style="filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.8));">
+                 <div class="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/30 to-cyan-400/30 animate-pulse"></div>
+                 <div class="absolute -inset-1 rounded-full border border-purple-400/40 animate-spin" style="animation-duration: 8s;"></div>
+             </div>
+             <span class="text-2xl md:text-3xl font-black text-white hover:scale-105 transition-all duration-300 cursor-pointer" style="
+                 text-shadow: 
+                     0 0 10px rgba(138, 43, 226, 1),
+                     0 0 20px rgba(0, 191, 255, 0.8),
+                     0 0 30px rgba(255, 20, 147, 0.6);
+             ">
+                 CBYUS
+             </span>
+         </div>
+         
+         <!-- DESKTOP NAVIGATION -->
+         <nav class="hidden md:flex items-center space-x-8 relative z-20">
+             <a href="#features" class="group relative px-4 py-2 font-bold text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-105">
+                 <span class="flex items-center space-x-2">
+                     <span class="text-purple-400 group-hover:scale-110 transition-transform">🧠</span>
+                     <span>POWER</span>
+                 </span>
+                 <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></div>
+             </a>
+             <a href="#projects" class="group relative px-4 py-2 font-bold text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-105">
+                 <span class="flex items-center space-x-2">
+                     <span class="text-blue-400 group-hover:scale-110 transition-transform">🚀</span>
+                     <span>ARSENAL</span>
+                 </span>
+                 <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300"></div>
+             </a>
+             <a href="#about" class="group relative px-4 py-2 font-bold text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-105">
+                 <span class="flex items-center space-x-2">
+                     <span class="text-green-400 group-hover:scale-110 transition-transform">⚡</span>
+                     <span>LEGENDS</span>
+                 </span>
+                 <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-400 to-emerald-400 group-hover:w-full transition-all duration-300"></div>
+             </a>
+             <a href="#contact" class="px-6 py-3 font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 rounded-full transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-purple-500/50">
+                 <span class="flex items-center space-x-2">
+                     <span class="text-yellow-300">🔥</span>
+                     <span>CONNECT</span>
+                 </span>
+             </a>
+         </nav>
+         
+         <!-- MOBILE MENU BUTTON -->
+         <button class="md:hidden p-3 text-white focus:outline-none transform hover:scale-110 transition-all duration-300 relative z-20" id="mobileMenuBtn">
+             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+             </svg>
+         </button>
+         
+         <!-- MOBILE MENU -->
+         <div class="absolute top-full left-0 right-0 bg-gradient-to-br from-gray-900/98 to-black/98 backdrop-blur-xl border-b border-purple-500/50 transform -translate-y-full opacity-0 transition-all duration-500 md:hidden z-50" id="mobileMenu" style="box-shadow: 0 10px 40px rgba(138, 43, 226, 0.3);">
+             <nav class="flex flex-col space-y-4 p-6">
+                 <a href="#features" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:text-white font-bold transition-all duration-300 transform hover:translate-x-2">
+                     <span class="text-2xl">🧠</span>
+                     <span>THE POWER</span>
+                 </a>
+                 <a href="#projects" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:text-white font-bold transition-all duration-300 transform hover:translate-x-2">
+                     <span class="text-2xl">🚀</span>
+                     <span>SECRET ARSENAL</span>
+                 </a>
+                 <a href="#about" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:text-white font-bold transition-all duration-300 transform hover:translate-x-2">
+                     <span class="text-2xl">⚡</span>
+                     <span>THE LEGENDS</span>
+                 </a>
+                 <a href="#contact" class="flex items-center justify-center space-x-3 px-6 py-4 mt-4 font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 rounded-full transition-all duration-300 transform hover:scale-105">
+                     <span class="text-2xl">🔥</span>
+                     <span>JOIN THE REVOLUTION</span>
+                 </a>
+             </nav>
+         </div>
+     </header>
 
-    <main class="flex-grow flex items-center justify-center p-6 md:p-12 relative overflow-hidden">
-        <!-- Animated Background Elements -->
+    <main class="flex-grow flex items-center justify-center p-6 md:p-12 relative overflow-hidden perspective-container">
+        <!-- INSANE BACKGROUND EFFECTS -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-            <div class="absolute top-40 right-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
-            <div class="absolute -bottom-8 left-20 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-2000"></div>
+            <!-- Morphing Orbs -->
+            <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse transform-3d" style="animation: float-3d 8s ease-in-out infinite;"></div>
+            <div class="absolute top-40 right-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-1000 transform-3d" style="animation: float-3d 10s ease-in-out infinite reverse;"></div>
+            <div class="absolute -bottom-8 left-20 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-2000 transform-3d" style="animation: float-3d 12s ease-in-out infinite;"></div>
+            
+            <!-- Holographic Grid -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="grid grid-cols-12 grid-rows-8 h-full w-full">
+                    <div class="border border-cyan-400 holographic"></div>
+                    <div class="border border-purple-400 holographic" style="animation-delay: 0.5s;"></div>
+                    <div class="border border-pink-400 holographic" style="animation-delay: 1s;"></div>
+                    <div class="border border-cyan-400 holographic" style="animation-delay: 1.5s;"></div>
+                    <div class="border border-purple-400 holographic" style="animation-delay: 2s;"></div>
+                    <div class="border border-pink-400 holographic" style="animation-delay: 2.5s;"></div>
+                    <div class="border border-cyan-400 holographic" style="animation-delay: 3s;"></div>
+                    <div class="border border-purple-400 holographic" style="animation-delay: 3.5s;"></div>
+                    <div class="border border-pink-400 holographic" style="animation-delay: 4s;"></div>
+                    <div class="border border-cyan-400 holographic" style="animation-delay: 4.5s;"></div>
+                    <div class="border border-purple-400 holographic" style="animation-delay: 5s;"></div>
+                    <div class="border border-pink-400 holographic" style="animation-delay: 5.5s;"></div>
+                </div>
+            </div>
+            
+            <!-- Floating Geometric Shapes -->
+            <div class="absolute top-1/4 left-1/4 w-16 h-16 border-2 border-cyan-400 transform rotate-45 animate-spin opacity-20" style="animation-duration: 20s;"></div>
+            <div class="absolute top-3/4 right-1/4 w-12 h-12 border-2 border-purple-400 transform rotate-45 animate-spin opacity-20" style="animation-duration: 15s; animation-direction: reverse;"></div>
+            <div class="absolute top-1/2 left-3/4 w-20 h-20 border-2 border-pink-400 transform rotate-45 animate-spin opacity-20" style="animation-duration: 25s;"></div>
         </div>
         
-        <div class="text-center max-w-6xl relative z-10">
-            <div class="mb-8">
-                <span class="inline-block px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-semibold rounded-full mb-6 animate-bounce">
+        <div class="text-center max-w-6xl relative z-10 transform-3d">
+            <div class="mb-2">
+                <span class="inline-block px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-semibold rounded-full animate-bounce">
                     🚀 THE FUTURE IS HERE
                 </span>
             </div>
             
-            <h1 class="text-5xl md:text-8xl font-black leading-tight mb-8 gradient-text animate-pulse">
-                WE DON'T JUST <br class="hidden sm:block">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500">
-                    INNOVATE
-                </span><br class="hidden sm:block">
-                <span class="text-white">WE REVOLUTIONIZE</span>
+            <h1 class="text-4xl sm:text-5xl md:text-8xl font-black leading-tight mb-8 gradient-text animate-pulse transform-3d">
+                <span class="block sm:inline gradient-text morphing-text">WE CREATE THE</span> <br class="hidden sm:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 neon-glow block sm:inline morphing-text holographic" style="animation-delay: 1s;">
+                    IMPOSSIBLE
+                </span><br class="block sm:hidden">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 neon-glow block sm:inline font-black morphing-text holographic" style="animation-delay: 2s;">WE REVOLUTIONIZE</span>
             </h1>
             
             <p class="text-xl md:text-2xl text-gray-300 mb-4 font-light">
                 🔥 Breaking barriers in cybersecurity & AI 
             </p>
             <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-4xl mx-auto">
-                We're not building products — we're crafting the digital DNA of tomorrow. 
-                Every line of code, every algorithm, every solution is designed to make the impossible, inevitable.
+                We craft the digital DNA of tomorrow with mind-blowing precision. 
+                Every line of code, every algorithm, every solution we create transforms the impossible into inevitable, unstoppable reality.
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-                <a href="https://cbyus.info/" class="group inline-flex items-center px-10 py-5 rounded-full font-bold text-white btn-primary shadow-2xl text-lg transform hover:scale-105 transition-all duration-300">
-                    <span class="mr-2">🎯</span>
-                    WITNESS THE MAGIC
-                    <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                <a href="https://cbyus.info/" class="group inline-flex items-center px-6 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-white btn-primary shadow-2xl text-base sm:text-lg transform hover:scale-110 transition-all duration-500 w-full sm:w-auto justify-center max-w-xs energy-button holographic scan-lines card-3d">
+                    <span class="mr-2 text-2xl animate-pulse">🎯</span>
+                    <span class="hidden sm:inline relative z-10">WITNESS THE MAGIC</span>
+                    <span class="sm:hidden relative z-10">WITNESS MAGIC</span>
+                    <span class="ml-2 group-hover:translate-x-2 transition-transform duration-500 text-xl">→</span>
                 </a>
-                <a href="#projects" class="inline-flex items-center px-10 py-5 rounded-full font-bold text-white border-2 border-white hover:bg-white hover:text-black transition-all duration-300 text-lg transform hover:scale-105">
-                    <span class="mr-2">⚡</span>
-                    SEE WHAT'S COMING
+                <a href="#projects" class="group inline-flex items-center px-6 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-white border-2 border-white hover:bg-white hover:text-black transition-all duration-500 text-base sm:text-lg transform hover:scale-110 w-full sm:w-auto justify-center max-w-xs energy-button holographic scan-lines card-3d">
+                    <span class="mr-2 text-2xl animate-pulse">⚡</span>
+                    <span class="hidden sm:inline relative z-10">SEE WHAT'S COMING</span>
+                    <span class="sm:hidden relative z-10">WHAT'S COMING</span>
                 </a>
             </div>
             
@@ -277,6 +1224,25 @@
         </div>
     </main>
 
+    <!-- INSANE STATS TICKER -->
+    <section class="py-8 bg-gradient-to-r from-purple-900/40 to-blue-900/40 border-y-2 border-purple-500/50 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 animate-pulse"></div>
+        <div class="ticker-container relative z-10">
+            <div class="ticker-content">
+                <span class="ticker-item">🚀 99.99% UPTIME GUARANTEED</span>
+                <span class="ticker-item">⚡ 10M+ THREATS BLOCKED DAILY</span>
+                <span class="ticker-item">🔥 AI PROCESSING: 1B+ OPS/SEC</span>
+                <span class="ticker-item">💎 ZERO COMPROMISE SECURITY</span>
+                <span class="ticker-item">🌟 NEXT-GEN TECHNOLOGY</span>
+                <span class="ticker-item">🎯 INFINITE POSSIBILITIES</span>
+                <span class="ticker-item">🚀 99.99% UPTIME GUARANTEED</span>
+                <span class="ticker-item">⚡ 10M+ THREATS BLOCKED DAILY</span>
+            </div>
+        </div>
+    </section>
+
+    
+
     <!-- THE CBYUS DIFFERENCE SECTION -->
     <section id="features" class="py-20 px-6 md:px-12 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-pink-900/20"></div>
@@ -288,18 +1254,18 @@
                     <span class="text-white">DIFFERENCE</span>
                 </h2>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-                    🌟 We don't follow trends — we create them. Here's what makes us unstoppable:
+                    🌟 We create trends that shape the future. Here's what makes us unstoppable:
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Mind-Blowing Innovation -->
-                <div class="group bg-gradient-to-br from-purple-900/50 to-blue-900/50 p-8 rounded-2xl shadow-2xl border border-purple-500/30 hover:border-purple-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
+                <div class="group bg-gradient-to-br from-purple-900/50 to-blue-900/50 p-8 rounded-2xl shadow-2xl border border-purple-500/30 hover:border-purple-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 float-animation pulse-glow">
                     <div class="text-5xl mb-6 group-hover:animate-spin">🧠</div>
                     <h3 class="text-2xl font-black mb-4 text-white">MIND-BLOWING INNOVATION</h3>
-                    <p class="text-gray-300 mb-4">We think in dimensions others can't even imagine. Our solutions don't just solve problems — they redefine what's possible.</p>
+                    <p class="text-gray-300 mb-4">We think in dimensions others can only dream of. Our solutions shatter what's possible and forge entirely new realities.</p>
                     <div class="text-purple-400 font-bold text-sm">→ BEYOND IMAGINATION</div>
-                </div>
+            </div>
                 
                 <!-- Lightning Speed -->
                 <div class="group bg-gradient-to-br from-blue-900/50 to-cyan-900/50 p-8 rounded-2xl shadow-2xl border border-blue-500/30 hover:border-blue-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
@@ -313,7 +1279,7 @@
                 <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 p-8 rounded-2xl shadow-2xl border border-green-500/30 hover:border-green-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
                     <div class="text-5xl mb-6 group-hover:animate-bounce">🛡️</div>
                     <h3 class="text-2xl font-black mb-4 text-white">FORTRESS-LEVEL SECURITY</h3>
-                    <p class="text-gray-300 mb-4">Our security isn't just strong — it's mathematically beautiful. We make hackers cry tears of frustration.</p>
+                    <p class="text-gray-300 mb-4">Our security is mathematically beautiful and absolutely unbreakable. We forge digital fortresses that make hackers weep with frustration.</p>
                     <div class="text-green-400 font-bold text-sm">→ UNBREAKABLE</div>
                 </div>
                 
@@ -321,7 +1287,7 @@
                 <div class="group bg-gradient-to-br from-pink-900/50 to-rose-900/50 p-8 rounded-2xl shadow-2xl border border-pink-500/30 hover:border-pink-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
                     <div class="text-5xl mb-6 group-hover:animate-ping">✨</div>
                     <h3 class="text-2xl font-black mb-4 text-white">MAGICAL EXPERIENCES</h3>
-                    <p class="text-gray-300 mb-4">Every interaction feels like magic. We craft experiences so intuitive, they feel like telepathy.</p>
+                    <p class="text-gray-300 mb-4">Every interaction feels like pure magic. We craft experiences so intuitive, they feel like telepathy.</p>
                     <div class="text-pink-400 font-bold text-sm">→ PURE MAGIC</div>
                 </div>
                 
@@ -329,7 +1295,7 @@
                 <div class="group bg-gradient-to-br from-yellow-900/50 to-orange-900/50 p-8 rounded-2xl shadow-2xl border border-yellow-500/30 hover:border-yellow-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
                     <div class="text-5xl mb-6 group-hover:animate-spin">🌍</div>
                     <h3 class="text-2xl font-black mb-4 text-white">GLOBAL GAME-CHANGER</h3>
-                    <p class="text-gray-300 mb-4">We're not just building for today — we're architecting the digital infrastructure of human civilization.</p>
+                    <p class="text-gray-300 mb-4">We architect the digital infrastructure of human civilization, building foundations for tomorrow's world.</p>
                     <div class="text-yellow-400 font-bold text-sm">→ WORLD-CHANGING</div>
                 </div>
                 
@@ -344,8 +1310,8 @@
             
             <!-- Power Statement -->
             <div class="text-center mt-16 p-8 bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-2xl border border-purple-500/30">
-                <h3 class="text-3xl md:text-4xl font-black mb-4 gradient-text">WE'RE NOT JUST A COMPANY</h3>
-                <p class="text-xl text-gray-300 mb-6">We're a movement. A revolution. A force of nature in the digital realm.</p>
+                <h3 class="text-3xl md:text-4xl font-black mb-4 gradient-text">WE ARE THE FUTURE</h3>
+                <p class="text-xl text-gray-300 mb-6">We are a movement. A revolution. A force of nature in the digital realm.</p>
                 <div class="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-full text-lg animate-pulse">
                     🔥 THE FUTURE STARTS WITH US 🔥
                 </div>
@@ -373,7 +1339,7 @@
                 <div class="text-lg text-yellow-400 font-bold animate-bounce">
                     ⚠️ PREPARE TO BE AMAZED ⚠️
                 </div>
-            </div>
+                </div>
             
             <!-- Project Categories with Extreme Energy -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
@@ -383,14 +1349,14 @@
                     <div class="relative z-10">
                         <div class="text-6xl mb-6 group-hover:animate-spin">🤖</div>
                         <h3 class="text-3xl font-black mb-4 text-white">AI REVOLUTION</h3>
-                        <p class="text-gray-300 text-lg mb-6">We're not just using AI — we're rewriting its DNA. Our algorithms learn, adapt, and evolve faster than you can blink.</p>
+                        <p class="text-gray-300 text-lg mb-6">We rewrite the DNA of AI itself. Our algorithms learn, adapt, and evolve at mind-crushing speeds that defy belief.</p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center text-purple-300"><span class="mr-2">⚡</span> Self-Healing AI Systems</div>
                             <div class="flex items-center text-purple-300"><span class="mr-2">🧠</span> Quantum-Enhanced Learning</div>
                             <div class="flex items-center text-purple-300"><span class="mr-2">🔮</span> Predictive Threat Intelligence</div>
-                        </div>
+                </div>
                         <div class="mt-6 text-purple-400 font-bold text-lg animate-pulse">→ MIND = BLOWN 🤯</div>
-                    </div>
+                </div>
                 </div>
                 
                 <!-- Cyber Fortress -->
@@ -399,16 +1365,16 @@
                     <div class="relative z-10">
                         <div class="text-6xl mb-6 group-hover:animate-bounce">🏰</div>
                         <h3 class="text-3xl font-black mb-4 text-white">CYBER FORTRESS</h3>
-                        <p class="text-gray-300 text-lg mb-6">Our security is so advanced, it makes Fort Knox look like a cardboard box. Hackers don't just fail — they question their life choices.</p>
+                        <p class="text-gray-300 text-lg mb-6">Our security is so advanced, it makes Fort Knox look like a cardboard box. We build impenetrable digital fortresses that make enemies tremble.</p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center text-blue-300"><span class="mr-2">🛡️</span> Zero-Trust Architecture</div>
                             <div class="flex items-center text-blue-300"><span class="mr-2">🔐</span> Quantum-Resistant Encryption</div>
                             <div class="flex items-center text-blue-300"><span class="mr-2">⚔️</span> Autonomous Defense Systems</div>
-                        </div>
-                        <div class="mt-6 text-blue-400 font-bold text-lg animate-pulse">→ UNBREAKABLE 💎</div>
-                    </div>
                 </div>
-            </div>
+                        <div class="mt-6 text-blue-400 font-bold text-lg animate-pulse">→ UNBREAKABLE 💎</div>
+                </div>
+                </div>
+                </div>
             
             <!-- The Big Reveal -->
             <div class="text-center bg-gradient-to-r from-gray-900/90 to-black/90 p-12 rounded-3xl border-2 border-yellow-500/50 shadow-2xl relative overflow-hidden">
@@ -417,8 +1383,8 @@
                     <div class="text-7xl mb-6 animate-bounce">🎪</div>
                     <h3 class="text-4xl md:text-5xl font-black mb-6 gradient-text">THE GRAND UNVEILING</h3>
                     <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                        We're cooking up something so revolutionary, so mind-bendingly awesome, that we can't even tell you what it is yet. 
-                        But trust us — when we drop this bombshell, the entire tech world will never be the same.
+                        We're crafting something so revolutionary, so mind-bendingly epic, that we can reveal only tantalizing glimpses. 
+                        When we drop this digital bombshell, the entire tech world will never be the same.
                     </p>
                     
                     <!-- Countdown Style Elements -->
@@ -426,24 +1392,24 @@
                         <div class="bg-gradient-to-br from-red-600 to-pink-600 p-4 rounded-xl text-center">
                             <div class="text-2xl font-black text-white">Q2</div>
                             <div class="text-sm text-red-200">LAUNCH</div>
-                        </div>
+                </div>
                         <div class="bg-gradient-to-br from-orange-600 to-yellow-600 p-4 rounded-xl text-center">
                             <div class="text-2xl font-black text-white">BETA</div>
                             <div class="text-sm text-orange-200">ACCESS</div>
-                        </div>
+                </div>
                         <div class="bg-gradient-to-br from-green-600 to-emerald-600 p-4 rounded-xl text-center">
                             <div class="text-2xl font-black text-white">VIP</div>
                             <div class="text-sm text-green-200">PREVIEW</div>
-                        </div>
+                </div>
                         <div class="bg-gradient-to-br from-purple-600 to-indigo-600 p-4 rounded-xl text-center">
                             <div class="text-2xl font-black text-white">EPIC</div>
                             <div class="text-sm text-purple-200">REVEAL</div>
-                        </div>
-                    </div>
+                </div>
+                </div>
                     
                     <div class="text-2xl font-black text-yellow-400 animate-pulse mb-4">
                         🔥 GET READY TO HAVE YOUR WORLD ROCKED 🔥
-                    </div>
+            </div>
                     <div class="text-sm text-gray-400">
                         (Seriously, you're going to want to be sitting down for this one)
                     </div>
@@ -466,10 +1432,10 @@
                     <span class="text-white">CBYUS</span>
                 </h2>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
-                    💥 Not your average tech company. We're digital gladiators, code warriors, and the architects of tomorrow's impossible.
+                    💥 We are digital gladiators, code warriors, and the architects of tomorrow's impossible reality.
                 </p>
             </div>
-            
+
             <!-- Epic Story Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
                 <!-- Origin Story -->
@@ -480,11 +1446,11 @@
                         Born from the fusion of pure ambition and relentless innovation, Cbyus emerged when a group of digital rebels decided that "impossible" was just another word for "challenge accepted."
                     </p>
                     <p class="text-gray-300 text-lg">
-                        We don't just push boundaries — we obliterate them and build something magnificent in their place.
+                        We obliterate boundaries and forge something absolutely magnificent from the ashes.
                     </p>
                     <div class="mt-6 text-red-400 font-bold text-lg animate-pulse">→ LEGENDARY BEGINNINGS 🌟</div>
-                </div>
-                
+            </div>
+            
                 <!-- Mission Impossible -->
                 <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 p-10 rounded-3xl shadow-2xl border-2 border-green-500/50 hover:border-green-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
                     <div class="text-6xl mb-6 group-hover:animate-spin">🎯</div>
@@ -496,16 +1462,16 @@
                         Our mission? Simple. Make the impossible inevitable, one mind-blowing breakthrough at a time.
                     </p>
                     <div class="mt-6 text-green-400 font-bold text-lg animate-pulse">→ WORLD DOMINATION 🌍</div>
-                </div>
+        </div>
             </div>
             
             <!-- Team Power -->
             <div class="text-center bg-gradient-to-r from-purple-900/50 to-blue-900/50 p-12 rounded-3xl border-2 border-purple-500/50 shadow-2xl mb-16">
                 <div class="text-7xl mb-6 animate-pulse">🚀</div>
                 <h3 class="text-4xl font-black mb-6 gradient-text">THE DREAM TEAM</h3>
-                <p class="text-xl text-gray-300 mb-8 max-w-4xl mx-auto">
-                    We're not just a team — we're a force of nature. A collective of brilliant minds, fearless innovators, and digital alchemists who turn caffeine and code into pure magic.
-                </p>
+                                    <p class="text-xl text-gray-300 mb-8 max-w-4xl mx-auto">
+                        We are a force of nature. A collective of brilliant minds, fearless innovators, and digital alchemists who turn caffeine and code into pure magic.
+                    </p>
                 
                 <!-- Power Stats -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
@@ -533,8 +1499,8 @@
                 <div class="text-6xl mb-6 animate-bounce">🎪</div>
                 <h3 class="text-4xl font-black mb-6 gradient-text">JOIN THE REVOLUTION</h3>
                 <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                    This isn't just about building software — this is about crafting the future of human civilization. 
-                    Every line of code we write, every algorithm we create, every solution we deploy is a step toward a more secure, more intelligent, more incredible tomorrow.
+                    We craft the future of human civilization through revolutionary software. 
+                    Every line of code we write, every algorithm we create, every solution we deploy advances us toward a more secure, more intelligent, more incredible tomorrow.
                 </p>
                 <div class="text-2xl font-black text-yellow-400 animate-pulse mb-4">
                     🌟 THE FUTURE IS CALLING — WILL YOU ANSWER? 🌟
@@ -565,7 +1531,7 @@
                 <div class="text-lg text-purple-400 font-bold animate-bounce">
                     ⚡ LET'S CREATE SOMETHING LEGENDARY TOGETHER ⚡
                 </div>
-            </div>
+                </div>
             
             <div class="bg-gradient-to-br from-gray-900/80 to-black/80 p-10 rounded-3xl border-2 border-purple-500/50 shadow-2xl">
                 <form action="https://formspree.io/f/xeokwlap" method="POST" class="space-y-8" id="contactForm">
@@ -589,14 +1555,14 @@
                             <span class="mr-3">🚀</span>
                             LAUNCH MESSAGE
                             <span class="ml-3 group-hover:translate-x-2 transition-transform">→</span>
-                        </button>
+                </button>
                         <p class="text-gray-400 mt-4 text-sm">
                             (Warning: Sending this message may result in mind-blowing opportunities)
                         </p>
                     </div>
                     
                     <div id="formStatus" class="hidden text-center p-4 rounded-xl"></div>
-                </form>
+            </form>
             </div>
             
             <!-- Contact Energy -->
@@ -644,6 +1610,593 @@
     </footer>
 
     <script>
+        // EPIC LOADING SCREEN
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const loadingBar = document.getElementById('loadingBar');
+            const loadingText = document.getElementById('loadingText');
+            
+            const loadingMessages = [
+                'Calibrating awesome levels...',
+                'Charging particle accelerators...',
+                'Initializing quantum processors...',
+                'Loading revolutionary algorithms...',
+                'Activating cybersecurity protocols...',
+                'Synchronizing with the future...',
+                'Preparing mind-blowing experience...',
+                'Revolution loading complete! 🚀'
+            ];
+            
+            let progress = 0;
+            let messageIndex = 0;
+            
+            const loadingInterval = setInterval(() => {
+                progress += Math.random() * 15 + 5;
+                if (progress > 100) progress = 100;
+                
+                loadingBar.style.width = progress + '%';
+                
+                if (messageIndex < loadingMessages.length - 1 && progress > (messageIndex + 1) * 12.5) {
+                    messageIndex++;
+                    loadingText.textContent = loadingMessages[messageIndex];
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(loadingInterval);
+                    setTimeout(() => {
+                        loadingScreen.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                            initializeEffects();
+                        }, 1000);
+                    }, 500);
+                }
+            }, 200);
+        });
+        
+        // EPIC EFFECTS INITIALIZATION
+        function initializeEffects() {
+            // Check if mobile device
+            const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (!isMobile) {
+                createMatrixRain();
+                createParticleSystem();
+                initializeMouseTracker();
+                addInsaneInteractions();
+                initializeNavbarEffects();
+            } else {
+                // Lighter effects for mobile
+                createLightMatrixRain();
+            }
+            
+            addScrollAnimations();
+            initializeDynamicNavbar();
+            setTimeout(showLaunchPopup, 2000);
+        }
+        
+        // DYNAMIC NAVBAR BEHAVIOR
+        function initializeDynamicNavbar() {
+            const navbar = document.querySelector('header');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+            
+            function updateNavbar() {
+                const scrollY = window.scrollY;
+                
+                if (scrollY > 100) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+                
+                // Hide navbar when scrolling down, show when scrolling up
+                if (scrollY > lastScrollY && scrollY > 200) {
+                    navbar.classList.add('navbar-hidden');
+                } else {
+                    navbar.classList.remove('navbar-hidden');
+                }
+                
+                lastScrollY = scrollY;
+                ticking = false;
+            }
+            
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(updateNavbar);
+                    ticking = true;
+                }
+            }
+            
+            window.addEventListener('scroll', requestTick);
+            
+            // Add hover effects to navbar
+            navbar.addEventListener('mouseenter', () => {
+                navbar.classList.remove('navbar-hidden');
+            });
+        }
+        
+        // INSANE MOUSE TRACKER
+        function initializeMouseTracker() {
+            const mouseTracker = document.getElementById('mouseTracker');
+            
+            document.addEventListener('mousemove', (e) => {
+                const x = e.clientX - 150; // Center the tracker
+                const y = e.clientY - 150;
+                
+                mouseTracker.style.left = x + 'px';
+                mouseTracker.style.top = y + 'px';
+                
+                // Add random color changes
+                if (Math.random() < 0.1) {
+                    const colors = [
+                        'rgba(138, 43, 226, 0.1)',
+                        'rgba(0, 191, 255, 0.1)',
+                        'rgba(255, 20, 147, 0.1)',
+                        'rgba(50, 255, 50, 0.1)'
+                    ];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    mouseTracker.style.background = `radial-gradient(circle, ${randomColor} 0%, transparent 70%)`;
+                }
+            });
+        }
+        
+        // INSANE INTERACTIONS
+        function addInsaneInteractions() {
+            // Add crazy hover effects to all cards
+            document.querySelectorAll('.card-3d').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    // Random rotation and glow
+                    const randomRotateY = (Math.random() - 0.5) * 30;
+                    const randomRotateX = (Math.random() - 0.5) * 20;
+                    card.style.transform = `perspective(1000px) rotateY(${randomRotateY}deg) rotateX(${randomRotateX}deg) translateZ(50px)`;
+                    
+                    // Random glow color
+                    const glowColors = ['rgba(138, 43, 226, 0.6)', 'rgba(0, 191, 255, 0.6)', 'rgba(255, 20, 147, 0.6)'];
+                    const randomGlow = glowColors[Math.floor(Math.random() * glowColors.length)];
+                    card.style.boxShadow = `0 20px 50px ${randomGlow}, 0 0 100px ${randomGlow}`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                    card.style.boxShadow = '';
+                });
+            });
+            
+            // Add screen shake on button clicks
+            document.querySelectorAll('.energy-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.body.style.animation = 'screen-shake 0.5s ease-in-out';
+                    setTimeout(() => {
+                        document.body.style.animation = '';
+                    }, 500);
+                });
+            });
+            
+            // Add random particle bursts
+            setInterval(() => {
+                if (Math.random() < 0.3) {
+                    createParticleBurst();
+                }
+            }, 3000);
+        }
+        
+        // PARTICLE BURST EFFECT
+        function createParticleBurst() {
+            const burst = document.createElement('div');
+            burst.style.cssText = `
+                position: fixed;
+                top: ${Math.random() * window.innerHeight}px;
+                left: ${Math.random() * window.innerWidth}px;
+                width: 4px;
+                height: 4px;
+                background: linear-gradient(45deg, #8a2be2, #00bfff);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 1000;
+                animation: particle-burst 2s ease-out forwards;
+            `;
+            
+            // Add burst animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes particle-burst {
+                    0% {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                    50% {
+                        transform: scale(20);
+                        opacity: 0.5;
+                    }
+                    100% {
+                        transform: scale(40);
+                        opacity: 0;
+                    }
+                }
+                
+                @keyframes screen-shake {
+                    0%, 100% { transform: translateX(0); }
+                    10% { transform: translateX(-2px); }
+                    20% { transform: translateX(2px); }
+                    30% { transform: translateX(-2px); }
+                    40% { transform: translateX(2px); }
+                    50% { transform: translateX(-1px); }
+                    60% { transform: translateX(1px); }
+                    70% { transform: translateX(-1px); }
+                    80% { transform: translateX(1px); }
+                    90% { transform: translateX(-1px); }
+                }
+            `;
+            if (!document.querySelector('style[data-burst-effect]')) {
+                style.setAttribute('data-burst-effect', 'true');
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(burst);
+            
+            setTimeout(() => {
+                burst.remove();
+            }, 2000);
+        }
+        
+        // LIGHTER MATRIX RAIN FOR MOBILE
+        function createLightMatrixRain() {
+            const matrixContainer = document.getElementById('matrixContainer');
+            const characters = '01';
+            
+            // Only 5 columns for mobile
+            for (let i = 0; i < 5; i++) {
+                createMatrixColumn(i * (window.innerWidth / 5));
+            }
+            
+            function createMatrixColumn(x) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = x + 'px';
+                column.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                column.style.animationDelay = Math.random() * 3 + 's';
+                column.style.fontSize = '10px';
+                
+                let text = '';
+                for (let i = 0; i < Math.random() * 10 + 5; i++) {
+                    text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
+                }
+                column.innerHTML = text;
+                
+                matrixContainer.appendChild(column);
+                
+                setTimeout(() => {
+                    column.remove();
+                    createMatrixColumn(x);
+                }, (Math.random() * 4 + 3) * 1000);
+            }
+        }
+        
+        // MATRIX RAIN EFFECT
+        function createMatrixRain() {
+            const matrixContainer = document.getElementById('matrixContainer');
+            const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+            
+            for (let i = 0; i < 20; i++) {
+                createMatrixColumn(i * (window.innerWidth / 20));
+            }
+            
+            function createMatrixColumn(x) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = x + 'px';
+                column.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                column.style.animationDelay = Math.random() * 2 + 's';
+                
+                let text = '';
+                for (let i = 0; i < Math.random() * 20 + 10; i++) {
+                    text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
+                }
+                column.innerHTML = text;
+                
+                matrixContainer.appendChild(column);
+                
+                setTimeout(() => {
+                    column.remove();
+                    createMatrixColumn(x);
+                }, (Math.random() * 3 + 2) * 1000);
+            }
+        }
+        
+        // PARTICLE SYSTEM
+        function createParticleSystem() {
+            const particlesContainer = document.getElementById('particlesContainer');
+            const codeElements = ['{ }', '< />', '01', '11', 'AI', 'ML', 'SEC', 'DEV', '🔐', '⚡', '🚀', '💻', '🔥'];
+            
+            setInterval(() => {
+                if (Math.random() < 0.3) {
+                    createParticle();
+                }
+            }, 1000);
+            
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.textContent = codeElements[Math.floor(Math.random() * codeElements.length)];
+                particle.style.left = Math.random() * window.innerWidth + 'px';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particle.style.fontSize = (Math.random() * 8 + 8) + 'px';
+                
+                const colors = ['rgba(138, 43, 226, 0.6)', 'rgba(0, 191, 255, 0.6)', 'rgba(255, 20, 147, 0.6)'];
+                particle.style.color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particlesContainer.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 15000);
+            }
+        }
+        
+        // SCROLL ANIMATIONS
+        function addScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Add scroll animations to sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(50px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(section);
+            });
+        }
+        
+        // EASTER EGGS
+        let konamiCode = [];
+        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑↑↓↓←→←→BA
+        
+        document.addEventListener('keydown', function(e) {
+            konamiCode.push(e.keyCode);
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
+                activateEasterEgg();
+                konamiCode = [];
+            }
+        });
+        
+        function activateEasterEgg() {
+            const body = document.body;
+            body.style.animation = 'rainbow 2s infinite';
+            
+            // Add rainbow animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes rainbow {
+                    0% { filter: hue-rotate(0deg); }
+                    100% { filter: hue-rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Show epic message
+            const easterEggMessage = document.createElement('div');
+            easterEggMessage.innerHTML = `
+                <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+                     background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3); 
+                     color: white; padding: 20px; border-radius: 20px; text-align: center; z-index: 10000; 
+                     font-size: 24px; font-weight: bold; animation: pulse 1s infinite;">
+                    🎉 KONAMI CODE ACTIVATED! 🎉<br>
+                    YOU'VE UNLOCKED THE RAINBOW DIMENSION!<br>
+                    <small>You're clearly a person of culture! 😎</small>
+                </div>
+            `;
+            document.body.appendChild(easterEggMessage);
+            
+            setTimeout(() => {
+                body.style.animation = '';
+                easterEggMessage.remove();
+                document.head.removeChild(style);
+            }, 5000);
+        }
+        
+        // INSANE NAVBAR EFFECTS
+        function initializeNavbarEffects() {
+            // Add random glow effects to nav items
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    // Random particle burst from nav item
+                    const rect = link.getBoundingClientRect();
+                    const x = rect.left + rect.width / 2;
+                    const y = rect.top + rect.height / 2;
+                    createNavParticleBurst(x, y);
+                });
+            });
+            
+            // Add logo click effects
+            document.querySelector('header img').addEventListener('click', () => {
+                // Screen flash effect
+                const flash = document.createElement('div');
+                flash.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+                    pointer-events: none;
+                    z-index: 10000;
+                    animation: logo-flash 0.5s ease-out forwards;
+                `;
+                
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes logo-flash {
+                        0% { opacity: 0; transform: scale(0); }
+                        50% { opacity: 1; transform: scale(1.5); }
+                        100% { opacity: 0; transform: scale(2); }
+                    }
+                `;
+                if (!document.querySelector('style[data-logo-flash]')) {
+                    style.setAttribute('data-logo-flash', 'true');
+                    document.head.appendChild(style);
+                }
+                
+                document.body.appendChild(flash);
+                setTimeout(() => flash.remove(), 500);
+            });
+        }
+        
+        // NAV PARTICLE BURST
+        function createNavParticleBurst(x, y) {
+            for (let i = 0; i < 8; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    left: ${x}px;
+                    top: ${y}px;
+                    width: 4px;
+                    height: 4px;
+                    background: linear-gradient(45deg, #8a2be2, #00bfff);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1000;
+                    animation: nav-particle-${i} 1s ease-out forwards;
+                `;
+                
+                const angle = (i / 8) * Math.PI * 2;
+                const distance = 50;
+                const endX = x + Math.cos(angle) * distance;
+                const endY = y + Math.sin(angle) * distance;
+                
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes nav-particle-${i} {
+                        0% {
+                            transform: translate(0, 0) scale(1);
+                            opacity: 1;
+                        }
+                        100% {
+                            transform: translate(${endX - x}px, ${endY - y}px) scale(0);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                if (!document.querySelector(`style[data-nav-particle-${i}]`)) {
+                    style.setAttribute(`data-nav-particle-${i}`, 'true');
+                    document.head.appendChild(style);
+                }
+                
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 1000);
+            }
+        }
+        
+        // MOBILE MENU FUNCTIONALITY
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let mobileMenuOpen = false;
+        
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+        
+        function toggleMobileMenu() {
+            mobileMenuOpen = !mobileMenuOpen;
+            
+            if (mobileMenuOpen) {
+                mobileMenu.style.transform = 'translateY(0)';
+                mobileMenu.style.opacity = '1';
+                mobileMenuBtn.innerHTML = `
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                `;
+            } else {
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                mobileMenuBtn.innerHTML = `
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                `;
+            }
+        }
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (mobileMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+        
+        // EPIC CLICK EFFECTS
+        document.addEventListener('click', function(e) {
+            createClickEffect(e.clientX, e.clientY);
+        });
+        
+        function createClickEffect(x, y) {
+            const effect = document.createElement('div');
+            effect.style.cssText = `
+                position: fixed;
+                top: ${y}px;
+                left: ${x}px;
+                width: 20px;
+                height: 20px;
+                border: 2px solid #8a2be2;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9998;
+                animation: clickRipple 0.6s ease-out forwards;
+                transform: translate(-50%, -50%);
+            `;
+            
+            // Add ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes clickRipple {
+                    0% {
+                        transform: translate(-50%, -50%) scale(0);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: translate(-50%, -50%) scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            if (!document.querySelector('style[data-click-effect]')) {
+                style.setAttribute('data-click-effect', 'true');
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(effect);
+            
+            setTimeout(() => {
+                effect.remove();
+            }, 600);
+        }
+        
         // Launch Popup Functionality
         function showLaunchPopup() {
             const popup = document.getElementById('launchPopup');
@@ -655,10 +2208,7 @@
             popup.classList.remove('show');
         }
         
-        // Show popup when page loads
-        window.addEventListener('load', function() {
-            setTimeout(showLaunchPopup, 1000); // Show after 1 second
-        });
+        // Popup is now handled by initializeEffects() after loading screen
         
         // Close popup when clicking outside
         document.getElementById('launchPopup').addEventListener('click', function(e) {
