@@ -1011,6 +1011,29 @@
     <!-- MOUSE TRACKER -->
     <div class="mouse-tracker" id="mouseTracker"></div>
 
+    <!-- DEVELOPMENT BANNER -->
+    <div id="devBanner" class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 text-white py-3 px-4 shadow-lg border-b-2 border-red-400 transition-all duration-300 transform">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between space-y-2 sm:space-y-0">
+            <div class="flex items-center space-x-3 text-center sm:text-left">
+                <div class="text-2xl animate-bounce">⚠️</div>
+                <div class="font-bold text-sm sm:text-base">
+                    <span class="block sm:inline">🚧 SITE UNDER DEVELOPMENT</span>
+                    <span class="block sm:inline sm:ml-2 text-xs sm:text-sm opacity-90">Data shown is not accurate and for demonstration purposes only</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button onclick="showLaunchPopup()" class="bg-white text-red-600 px-4 py-2 rounded-full font-bold text-sm hover:bg-red-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    🚀 Get Notified
+                </button>
+                <button onclick="closeBanner()" class="text-white hover:text-red-200 transition-colors duration-300 p-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Launch Popup -->
     <div class="launch-popup" id="launchPopup">
         <div class="popup-content">
@@ -1045,13 +1068,13 @@
     </div>
 
                  <header class="w-full py-4 px-6 md:px-12 flex justify-between items-center relative" style="
-         background: linear-gradient(135deg, 
-             rgba(10, 10, 10, 0.95) 0%,
+        background: linear-gradient(135deg, 
+            rgba(10, 10, 10, 0.95) 0%,
              rgba(138, 43, 226, 0.15) 50%,
              rgba(0, 191, 255, 0.15) 100%);
          backdrop-filter: blur(20px) saturate(180%);
          border-bottom: 1px solid rgba(138, 43, 226, 0.3);
-         box-shadow: 
+        box-shadow: 
              0 4px 20px rgba(138, 43, 226, 0.2),
              0 0 40px rgba(0, 191, 255, 0.1);
      ">
@@ -1059,19 +1082,19 @@
          <div class="flex items-center space-x-3 relative z-20">
              <div class="relative">
                  <img src="Gemini_Generated_Image_k6fdtfk6fdtfk6fd.png" alt="Cbyus Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-purple-400/60 hover:border-cyan-400 transition-all duration-300 hover:scale-110" style="filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.8));">
-                 <div class="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/30 to-cyan-400/30 animate-pulse"></div>
+                <div class="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/30 to-cyan-400/30 animate-pulse"></div>
                  <div class="absolute -inset-1 rounded-full border border-purple-400/40 animate-spin" style="animation-duration: 8s;"></div>
-             </div>
+            </div>
              <span class="text-2xl md:text-3xl font-black text-white hover:scale-105 transition-all duration-300 cursor-pointer" style="
-                 text-shadow: 
-                     0 0 10px rgba(138, 43, 226, 1),
-                     0 0 20px rgba(0, 191, 255, 0.8),
-                     0 0 30px rgba(255, 20, 147, 0.6);
-             ">
-                 CBYUS
-             </span>
-         </div>
-         
+                    text-shadow: 
+                        0 0 10px rgba(138, 43, 226, 1),
+                        0 0 20px rgba(0, 191, 255, 0.8),
+                        0 0 30px rgba(255, 20, 147, 0.6);
+                ">
+                    CBYUS
+                </span>
+        </div>
+        
          <!-- DESKTOP NAVIGATION -->
          <nav class="hidden md:flex items-center space-x-8 relative z-20">
              <a href="#features" class="group relative px-4 py-2 font-bold text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-105">
@@ -1100,16 +1123,16 @@
                      <span class="text-yellow-300">🔥</span>
                      <span>CONNECT</span>
                  </span>
-             </a>
-         </nav>
-         
+            </a>
+        </nav>
+        
          <!-- MOBILE MENU BUTTON -->
          <button class="md:hidden p-3 text-white focus:outline-none transform hover:scale-110 transition-all duration-300 relative z-20" id="mobileMenuBtn">
              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-             </svg>
-         </button>
-         
+            </svg>
+        </button>
+        
          <!-- MOBILE MENU -->
          <div class="absolute top-full left-0 right-0 bg-gradient-to-br from-gray-900/98 to-black/98 backdrop-blur-xl border-b border-purple-500/50 transform -translate-y-full opacity-0 transition-all duration-500 md:hidden z-50" id="mobileMenu" style="box-shadow: 0 10px 40px rgba(138, 43, 226, 0.3);">
              <nav class="flex flex-col space-y-4 p-6">
@@ -1128,10 +1151,10 @@
                  <a href="#contact" class="flex items-center justify-center space-x-3 px-6 py-4 mt-4 font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 rounded-full transition-all duration-300 transform hover:scale-105">
                      <span class="text-2xl">🔥</span>
                      <span>JOIN THE REVOLUTION</span>
-                 </a>
-             </nav>
-         </div>
-     </header>
+                </a>
+            </nav>
+        </div>
+    </header>
 
     <main class="flex-grow flex items-center justify-center p-6 md:p-12 relative overflow-hidden perspective-container">
         <!-- INSANE BACKGROUND EFFECTS -->
@@ -1173,32 +1196,32 @@
             </div>
             
             <h1 class="text-4xl sm:text-5xl md:text-8xl font-black leading-tight mb-8 gradient-text animate-pulse transform-3d">
-                <span class="block sm:inline gradient-text morphing-text">WE CREATE THE</span> <br class="hidden sm:block">
+                <span class="block sm:inline gradient-text morphing-text">THE ULTIMATE</span> <br class="hidden sm:block">
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 neon-glow block sm:inline morphing-text holographic" style="animation-delay: 1s;">
-                    IMPOSSIBLE
+                    STARTUP
                 </span><br class="block sm:hidden">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 neon-glow block sm:inline font-black morphing-text holographic" style="animation-delay: 2s;">WE REVOLUTIONIZE</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 neon-glow block sm:inline font-black morphing-text holographic" style="animation-delay: 2s;">ECOSYSTEM</span>
             </h1>
             
             <p class="text-xl md:text-2xl text-gray-300 mb-4 font-light">
-                🔥 Breaking barriers in cybersecurity & AI 
+                🚀 Building 20+ Revolutionary Startups That Will Reshape The World
             </p>
             <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-4xl mx-auto">
-                We craft the digital DNA of tomorrow with mind-blowing precision. 
-                Every line of code, every algorithm, every solution we create transforms the impossible into inevitable, unstoppable reality.
+                We are the world's most ambitious venture studio, launching an entire ecosystem of revolutionary companies simultaneously. 
+                From AI defense to space infrastructure, each startup solves impossible problems and creates trillion-dollar markets.
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
                 <a href="https://cbyus.info/" class="group inline-flex items-center px-6 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-white btn-primary shadow-2xl text-base sm:text-lg transform hover:scale-110 transition-all duration-500 w-full sm:w-auto justify-center max-w-xs energy-button holographic scan-lines card-3d">
-                    <span class="mr-2 text-2xl animate-pulse">🎯</span>
-                    <span class="hidden sm:inline relative z-10">WITNESS THE MAGIC</span>
-                    <span class="sm:hidden relative z-10">WITNESS MAGIC</span>
+                    <span class="mr-2 text-2xl animate-pulse">🏭</span>
+                    <span class="hidden sm:inline relative z-10">EXPLORE THE ECOSYSTEM</span>
+                    <span class="sm:hidden relative z-10">EXPLORE</span>
                     <span class="ml-2 group-hover:translate-x-2 transition-transform duration-500 text-xl">→</span>
                 </a>
                 <a href="#projects" class="group inline-flex items-center px-6 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-white border-2 border-white hover:bg-white hover:text-black transition-all duration-500 text-base sm:text-lg transform hover:scale-110 w-full sm:w-auto justify-center max-w-xs energy-button holographic scan-lines card-3d">
-                    <span class="mr-2 text-2xl animate-pulse">⚡</span>
-                    <span class="hidden sm:inline relative z-10">SEE WHAT'S COMING</span>
-                    <span class="sm:hidden relative z-10">WHAT'S COMING</span>
+                    <span class="mr-2 text-2xl animate-pulse">🚀</span>
+                    <span class="hidden sm:inline relative z-10">VIEW STARTUP PORTFOLIO</span>
+                    <span class="sm:hidden relative z-10">PORTFOLIO</span>
                 </a>
             </div>
             
@@ -1229,267 +1252,664 @@
         <div class="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 animate-pulse"></div>
         <div class="ticker-container relative z-10">
             <div class="ticker-content">
-                <span class="ticker-item">🚀 99.99% UPTIME GUARANTEED</span>
-                <span class="ticker-item">⚡ 10M+ THREATS BLOCKED DAILY</span>
-                <span class="ticker-item">🔥 AI PROCESSING: 1B+ OPS/SEC</span>
-                <span class="ticker-item">💎 ZERO COMPROMISE SECURITY</span>
-                <span class="ticker-item">🌟 NEXT-GEN TECHNOLOGY</span>
-                <span class="ticker-item">🎯 INFINITE POSSIBILITIES</span>
-                <span class="ticker-item">🚀 99.99% UPTIME GUARANTEED</span>
-                <span class="ticker-item">⚡ 10M+ THREATS BLOCKED DAILY</span>
+                <span class="ticker-item">🚀 20+ STARTUPS IN DEVELOPMENT</span>
+                <span class="ticker-item">⚡ $10T+ ADDRESSABLE MARKET</span>
+                <span class="ticker-item">🔥 ECOSYSTEM VALUATION: $500B+</span>
+                <span class="ticker-item">💎 REVOLUTIONARY TECHNOLOGIES</span>
+                <span class="ticker-item">🌟 VENTURE STUDIO MODEL</span>
+                <span class="ticker-item">🎯 WORLD-CHANGING IMPACT</span>
+                <span class="ticker-item">🚀 20+ STARTUPS IN DEVELOPMENT</span>
+                <span class="ticker-item">⚡ $10T+ ADDRESSABLE MARKET</span>
             </div>
         </div>
     </section>
 
     
 
-    <!-- THE CBYUS DIFFERENCE SECTION -->
+    <!-- THE ECOSYSTEM ADVANTAGE SECTION -->
     <section id="features" class="py-20 px-6 md:px-12 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-pink-900/20"></div>
         <div class="relative z-10 max-w-7xl mx-auto">
             <div class="text-center mb-16">
+                <div class="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-full text-lg mb-8 animate-pulse">
+                    🏭 VENTURE STUDIO ADVANTAGES 🏭
+                </div>
                 <h2 class="text-4xl md:text-6xl font-black mb-6">
-                    <span class="gradient-text">THE CBYUS</span>
+                    <span class="gradient-text">ECOSYSTEM</span>
                     <br>
-                    <span class="text-white">DIFFERENCE</span>
+                    <span class="text-white">SUPERPOWERS</span>
                 </h2>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-                    🌟 We create trends that shape the future. Here's what makes us unstoppable:
+                    🌟 Why our venture studio model creates unstoppable competitive advantages across 20+ startups:
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Mind-Blowing Innovation -->
+                <!-- Shared Infrastructure -->
                 <div class="group bg-gradient-to-br from-purple-900/50 to-blue-900/50 p-8 rounded-2xl shadow-2xl border border-purple-500/30 hover:border-purple-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 float-animation pulse-glow">
-                    <div class="text-5xl mb-6 group-hover:animate-spin">🧠</div>
-                    <h3 class="text-2xl font-black mb-4 text-white">MIND-BLOWING INNOVATION</h3>
-                    <p class="text-gray-300 mb-4">We think in dimensions others can only dream of. Our solutions shatter what's possible and forge entirely new realities.</p>
-                    <div class="text-purple-400 font-bold text-sm">→ BEYOND IMAGINATION</div>
+                    <div class="text-5xl mb-6 group-hover:animate-spin">🏗️</div>
+                    <h3 class="text-2xl font-black mb-4 text-white">SHARED INFRASTRUCTURE</h3>
+                    <p class="text-gray-300 mb-4">All 20+ startups leverage common AI, security, and development infrastructure. What costs others millions, we share across our ecosystem.</p>
+                    <div class="text-purple-400 font-bold text-sm">→ 10X COST EFFICIENCY</div>
             </div>
                 
-                <!-- Lightning Speed -->
+                <!-- Cross-Pollination -->
                 <div class="group bg-gradient-to-br from-blue-900/50 to-cyan-900/50 p-8 rounded-2xl shadow-2xl border border-blue-500/30 hover:border-blue-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
-                    <div class="text-5xl mb-6 group-hover:animate-pulse">⚡</div>
-                    <h3 class="text-2xl font-black mb-4 text-white">LIGHTNING EXECUTION</h3>
-                    <p class="text-gray-300 mb-4">While others talk, we build. Our development velocity breaks the sound barrier of software creation.</p>
-                    <div class="text-blue-400 font-bold text-sm">→ SPEED OF LIGHT</div>
+                    <div class="text-5xl mb-6 group-hover:animate-pulse">🔄</div>
+                    <h3 class="text-2xl font-black mb-4 text-white">CROSS-POLLINATION</h3>
+                    <p class="text-gray-300 mb-4">Technologies from our space startup enhance our AI defense platform. Our fintech innovations power our energy grid. Synergies everywhere.</p>
+                    <div class="text-blue-400 font-bold text-sm">→ EXPONENTIAL INNOVATION</div>
                 </div>
                 
-                <!-- Unbreakable Security -->
+                <!-- Market Domination -->
                 <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 p-8 rounded-2xl shadow-2xl border border-green-500/30 hover:border-green-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
-                    <div class="text-5xl mb-6 group-hover:animate-bounce">🛡️</div>
-                    <h3 class="text-2xl font-black mb-4 text-white">FORTRESS-LEVEL SECURITY</h3>
-                    <p class="text-gray-300 mb-4">Our security is mathematically beautiful and absolutely unbreakable. We forge digital fortresses that make hackers weep with frustration.</p>
-                    <div class="text-green-400 font-bold text-sm">→ UNBREAKABLE</div>
+                    <div class="text-5xl mb-6 group-hover:animate-bounce">👑</div>
+                    <h3 class="text-2xl font-black mb-4 text-white">MARKET DOMINATION</h3>
+                    <p class="text-gray-300 mb-4">While competitors focus on one sector, we simultaneously capture 9 major markets. Our ecosystem creates unassailable competitive moats.</p>
+                    <div class="text-green-400 font-bold text-sm">→ TOTAL DOMINANCE</div>
                 </div>
                 
-                <!-- Revolutionary UX -->
+                <!-- Risk Distribution -->
                 <div class="group bg-gradient-to-br from-pink-900/50 to-rose-900/50 p-8 rounded-2xl shadow-2xl border border-pink-500/30 hover:border-pink-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
-                    <div class="text-5xl mb-6 group-hover:animate-ping">✨</div>
-                    <h3 class="text-2xl font-black mb-4 text-white">MAGICAL EXPERIENCES</h3>
-                    <p class="text-gray-300 mb-4">Every interaction feels like pure magic. We craft experiences so intuitive, they feel like telepathy.</p>
-                    <div class="text-pink-400 font-bold text-sm">→ PURE MAGIC</div>
+                    <div class="text-5xl mb-6 group-hover:animate-ping">⚖️</div>
+                    <h3 class="text-2xl font-black mb-4 text-white">RISK DIVERSIFICATION</h3>
+                    <p class="text-gray-300 mb-4">Traditional startups bet everything on one idea. We spread risk across 20+ revolutionary companies in different sectors and timelines.</p>
+                    <div class="text-pink-400 font-bold text-sm">→ BULLETPROOF PORTFOLIO</div>
                 </div>
                 
-                <!-- Global Impact -->
+                <!-- Talent Magnet -->
                 <div class="group bg-gradient-to-br from-yellow-900/50 to-orange-900/50 p-8 rounded-2xl shadow-2xl border border-yellow-500/30 hover:border-yellow-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
-                    <div class="text-5xl mb-6 group-hover:animate-spin">🌍</div>
-                    <h3 class="text-2xl font-black mb-4 text-white">GLOBAL GAME-CHANGER</h3>
-                    <p class="text-gray-300 mb-4">We architect the digital infrastructure of human civilization, building foundations for tomorrow's world.</p>
-                    <div class="text-yellow-400 font-bold text-sm">→ WORLD-CHANGING</div>
+                    <div class="text-5xl mb-6 group-hover:animate-spin">🧲</div>
+                    <h3 class="text-2xl font-black mb-4 text-white">TALENT MAGNETISM</h3>
+                    <p class="text-gray-300 mb-4">Top engineers, scientists, and visionaries want to work on world-changing problems. Our ecosystem offers the ultimate career playground.</p>
+                    <div class="text-yellow-400 font-bold text-sm">→ GENIUS ATTRACTION</div>
                 </div>
                 
-                <!-- Limitless Potential -->
+                <!-- Capital Efficiency -->
                 <div class="group bg-gradient-to-br from-indigo-900/50 to-purple-900/50 p-8 rounded-2xl shadow-2xl border border-indigo-500/30 hover:border-indigo-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
-                    <div class="text-5xl mb-6 group-hover:animate-pulse">🚀</div>
-                    <h3 class="text-2xl font-black mb-4 text-white">LIMITLESS POTENTIAL</h3>
-                    <p class="text-gray-300 mb-4">There's no ceiling to what we can achieve. Every challenge is just a stepping stone to our next breakthrough.</p>
-                    <div class="text-indigo-400 font-bold text-sm">→ NO LIMITS</div>
+                    <div class="text-5xl mb-6 group-hover:animate-pulse">💰</div>
+                    <h3 class="text-2xl font-black mb-4 text-white">CAPITAL MULTIPLICATION</h3>
+                    <p class="text-gray-300 mb-4">Each successful startup funds the next wave. Our ecosystem becomes self-sustaining and generates infinite growth capital.</p>
+                    <div class="text-indigo-400 font-bold text-sm">→ INFINITE SCALING</div>
                 </div>
             </div>
             
-            <!-- Power Statement -->
+            <!-- Ecosystem Power Statement -->
             <div class="text-center mt-16 p-8 bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-2xl border border-purple-500/30">
-                <h3 class="text-3xl md:text-4xl font-black mb-4 gradient-text">WE ARE THE FUTURE</h3>
-                <p class="text-xl text-gray-300 mb-6">We are a movement. A revolution. A force of nature in the digital realm.</p>
+                <h3 class="text-3xl md:text-4xl font-black mb-4 gradient-text">THE ECOSYSTEM ADVANTAGE</h3>
+                <p class="text-xl text-gray-300 mb-6">We are architecting the operating system of human civilization, building revolutionary startups across every critical sector simultaneously.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-6">
+                    <div class="bg-gradient-to-br from-red-600/30 to-orange-600/30 p-4 rounded-xl border border-red-400/30">
+                        <div class="text-2xl font-black text-white">20+</div>
+                        <div class="text-sm text-red-200">Simultaneous Startups</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-600/30 to-emerald-600/30 p-4 rounded-xl border border-green-400/30">
+                        <div class="text-2xl font-black text-white">$15T+</div>
+                        <div class="text-sm text-green-200">Total Market Size</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-600/30 to-cyan-600/30 p-4 rounded-xl border border-blue-400/30">
+                        <div class="text-2xl font-black text-white">9</div>
+                        <div class="text-sm text-blue-200">Critical Sectors</div>
+                    </div>
+                </div>
                 <div class="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-full text-lg animate-pulse">
-                    🔥 THE FUTURE STARTS WITH US 🔥
+                    🏭 THE VENTURE STUDIO OF THE FUTURE 🏭
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- REVOLUTIONARY PROJECTS SECTION -->
+    <!-- STARTUP ECOSYSTEM PORTFOLIO -->
     <section id="projects" class="py-20 px-6 md:px-12 relative overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900/10 to-blue-900/10">
         <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
         
         <div class="relative z-10 max-w-7xl mx-auto">
             <div class="text-center mb-20">
-                <div class="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-full text-lg mb-8 animate-pulse">
-                    🚨 CLASSIFIED INTEL AHEAD 🚨
+                <div class="inline-block px-8 py-3 bg-gradient-to-r from-red-600 to-orange-600 text-white font-bold rounded-full text-lg mb-8 animate-pulse">
+                    🏢 VENTURE STUDIO: STARTUP PORTFOLIO 🏢
                 </div>
                 <h2 class="text-5xl md:text-7xl font-black mb-8">
-                    <span class="gradient-text">SECRET</span>
+                    <span class="gradient-text">STARTUP</span>
                     <br>
-                    <span class="text-white">WEAPONS</span>
+                    <span class="text-white">EMPIRE</span>
                 </h2>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8">
-                    🎯 We're building the digital arsenal of the future. Each project is a game-changer that will reshape entire industries.
+                    🎯 Each startup in our ecosystem targets trillion-dollar markets with revolutionary technology that solves impossible problems.
                 </p>
                 <div class="text-lg text-yellow-400 font-bold animate-bounce">
-                    ⚠️ PREPARE TO BE AMAZED ⚠️
+                    ⚠️ 20+ WORLD-CHANGING COMPANIES IN DEVELOPMENT ⚠️
                 </div>
                 </div>
             
-            <!-- Project Categories with Extreme Energy -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                <!-- AI Revolution -->
-                <div class="group relative bg-gradient-to-br from-purple-900/80 to-pink-900/80 p-10 rounded-3xl shadow-2xl border-2 border-purple-500/50 hover:border-purple-400 transition-all duration-700 transform hover:-translate-y-4 hover:rotate-1 hover:scale-105">
+            <!-- Revolutionary Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                
+                <!-- AI Trust & Safety Platform -->
+                <div class="group relative bg-gradient-to-br from-red-900/80 to-orange-900/80 p-8 rounded-3xl shadow-2xl border-2 border-red-500/50 hover:border-red-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-600/20 to-orange-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-5xl group-hover:animate-spin">🛡️</div>
+                            <div class="text-right">
+                                <div class="text-xs text-red-300 font-bold">MARKET SIZE</div>
+                                <div class="text-lg font-black text-white">$850B</div>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-black mb-2 text-white">AI TRUST & SAFETY</h3>
+                        <div class="text-xs text-red-200 mb-4 font-bold">STARTUP #1 • AI DEFENSE PLATFORM</div>
+                        <p class="text-gray-300 text-sm mb-4">Complete AI safety ecosystem protecting against jailbreaks, content poisoning, and manipulation. The first unbreakable AI defense system.</p>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center text-red-300"><span class="mr-2">⚡</span> AI Jailbreak Defense</div>
+                            <div class="flex items-center text-red-300"><span class="mr-2">🧠</span> Content Poisoning Detection</div>
+                            <div class="flex items-center text-red-300"><span class="mr-2">🔒</span> Deepfake Prevention</div>
+                        </div>
+                        <div class="mt-6 text-red-400 font-bold text-sm animate-pulse">→ $50B+ VALUATION TARGET 💎</div>
+                    </div>
+                </div>
+
+                <!-- Digital Identity & Privacy Suite -->
+                <div class="group relative bg-gradient-to-br from-purple-900/80 to-pink-900/80 p-8 rounded-3xl shadow-2xl border-2 border-purple-500/50 hover:border-purple-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
-                        <div class="text-6xl mb-6 group-hover:animate-spin">🤖</div>
-                        <h3 class="text-3xl font-black mb-4 text-white">AI REVOLUTION</h3>
-                        <p class="text-gray-300 text-lg mb-6">We rewrite the DNA of AI itself. Our algorithms learn, adapt, and evolve at mind-crushing speeds that defy belief.</p>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex items-center text-purple-300"><span class="mr-2">⚡</span> Self-Healing AI Systems</div>
-                            <div class="flex items-center text-purple-300"><span class="mr-2">🧠</span> Quantum-Enhanced Learning</div>
-                            <div class="flex items-center text-purple-300"><span class="mr-2">🔮</span> Predictive Threat Intelligence</div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-5xl group-hover:animate-bounce">👤</div>
+                            <div class="text-right">
+                                <div class="text-xs text-purple-300 font-bold">MARKET SIZE</div>
+                                <div class="text-lg font-black text-white">$320B</div>
                 </div>
-                        <div class="mt-6 text-purple-400 font-bold text-lg animate-pulse">→ MIND = BLOWN 🤯</div>
+                        </div>
+                        <h3 class="text-2xl font-black mb-2 text-white">DIGITAL IDENTITY</h3>
+                        <div class="text-xs text-purple-200 mb-4 font-bold">STARTUP #2 • PRIVACY CONTROL SUITE</div>
+                        <p class="text-gray-300 text-sm mb-4">Revolutionary privacy platform with disposable identities, digital funeral services, and complete reputation control.</p>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center text-purple-300"><span class="mr-2">🎭</span> Disposable Identity System</div>
+                            <div class="flex items-center text-purple-300"><span class="mr-2">⚰️</span> Digital Funeral Service</div>
+                            <div class="flex items-center text-purple-300"><span class="mr-2">👻</span> Reputation Guardian AI</div>
+                        </div>
+                        <div class="mt-6 text-purple-400 font-bold text-sm animate-pulse">→ $25B+ VALUATION TARGET 💎</div>
                 </div>
                 </div>
                 
-                <!-- Cyber Fortress -->
-                <div class="group relative bg-gradient-to-br from-blue-900/80 to-cyan-900/80 p-10 rounded-3xl shadow-2xl border-2 border-blue-500/50 hover:border-blue-400 transition-all duration-700 transform hover:-translate-y-4 hover:-rotate-1 hover:scale-105">
+                <!-- Fintech & Crypto Security Platform -->
+                <div class="group relative bg-gradient-to-br from-green-900/80 to-emerald-900/80 p-8 rounded-3xl shadow-2xl border-2 border-green-500/50 hover:border-green-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-600/20 to-emerald-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-5xl group-hover:animate-pulse">💰</div>
+                            <div class="text-right">
+                                <div class="text-xs text-green-300 font-bold">MARKET SIZE</div>
+                                <div class="text-lg font-black text-white">$1.2T</div>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-black mb-2 text-white">FINTECH SECURITY</h3>
+                        <div class="text-xs text-green-200 mb-4 font-bold">STARTUP #6 • CRYPTO & SUPPLY CHAIN</div>
+                        <p class="text-gray-300 text-sm mb-4">Complete financial security ecosystem with dead man's switches, smart contract protection, and supply chain verification.</p>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center text-green-300"><span class="mr-2">⚰️</span> Dead Man's Switch</div>
+                            <div class="flex items-center text-green-300"><span class="mr-2">🔗</span> Blockchain Security</div>
+                            <div class="flex items-center text-green-300"><span class="mr-2">🏦</span> Secure Financial Browser</div>
+                        </div>
+                        <div class="mt-6 text-green-400 font-bold text-sm animate-pulse">→ $75B+ VALUATION TARGET 💎</div>
+                    </div>
+                </div>
+
+                <!-- SpaceTech Operations Platform -->
+                <div class="group relative bg-gradient-to-br from-blue-900/80 to-cyan-900/80 p-8 rounded-3xl shadow-2xl border-2 border-blue-500/50 hover:border-blue-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
-                        <div class="text-6xl mb-6 group-hover:animate-bounce">🏰</div>
-                        <h3 class="text-3xl font-black mb-4 text-white">CYBER FORTRESS</h3>
-                        <p class="text-gray-300 text-lg mb-6">Our security is so advanced, it makes Fort Knox look like a cardboard box. We build impenetrable digital fortresses that make enemies tremble.</p>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex items-center text-blue-300"><span class="mr-2">🛡️</span> Zero-Trust Architecture</div>
-                            <div class="flex items-center text-blue-300"><span class="mr-2">🔐</span> Quantum-Resistant Encryption</div>
-                            <div class="flex items-center text-blue-300"><span class="mr-2">⚔️</span> Autonomous Defense Systems</div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-5xl group-hover:animate-spin">🚀</div>
+                            <div class="text-right">
+                                <div class="text-xs text-blue-300 font-bold">MARKET SIZE</div>
+                                <div class="text-lg font-black text-white">$450B</div>
                 </div>
-                        <div class="mt-6 text-blue-400 font-bold text-lg animate-pulse">→ UNBREAKABLE 💎</div>
                 </div>
+                        <h3 class="text-2xl font-black mb-2 text-white">SPACETECH OPS</h3>
+                        <div class="text-xs text-blue-200 mb-4 font-bold">STARTUP #13 • SPACE INFRASTRUCTURE</div>
+                        <p class="text-gray-300 text-sm mb-4">Complete space operations platform managing satellite fleets, predicting collisions, and enabling interplanetary commerce.</p>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center text-blue-300"><span class="mr-2">🛰️</span> Satellite Fleet Management</div>
+                            <div class="flex items-center text-blue-300"><span class="mr-2">💫</span> Collision Prediction AI</div>
+                            <div class="flex items-center text-blue-300"><span class="mr-2">🌙</span> Lunar Supply Chain</div>
+                        </div>
+                        <div class="mt-6 text-blue-400 font-bold text-sm animate-pulse">→ $100B+ VALUATION TARGET 🌌</div>
                 </div>
                 </div>
             
-            <!-- The Big Reveal -->
-            <div class="text-center bg-gradient-to-r from-gray-900/90 to-black/90 p-12 rounded-3xl border-2 border-yellow-500/50 shadow-2xl relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-r from-yellow-600/10 to-orange-600/10 animate-pulse"></div>
+                <!-- Global Energy Optimization -->
+                <div class="group relative bg-gradient-to-br from-indigo-900/80 to-purple-900/80 p-8 rounded-3xl shadow-2xl border-2 border-indigo-500/50 hover:border-indigo-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div class="relative z-10">
-                    <div class="text-7xl mb-6 animate-bounce">🎪</div>
-                    <h3 class="text-4xl md:text-5xl font-black mb-6 gradient-text">THE GRAND UNVEILING</h3>
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-5xl group-hover:animate-bounce">⚡</div>
+                            <div class="text-right">
+                                <div class="text-xs text-indigo-300 font-bold">MARKET SIZE</div>
+                                <div class="text-lg font-black text-white">$2.8T</div>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-black mb-2 text-white">ENERGY GRID AI</h3>
+                        <div class="text-xs text-indigo-200 mb-4 font-bold">STARTUP #16 • GLOBAL ENERGY PLATFORM</div>
+                        <p class="text-gray-300 text-sm mb-4">AI-powered global energy orchestration balancing renewable sources, optimizing mining operations, and managing storage networks.</p>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center text-indigo-300"><span class="mr-2">🔋</span> Smart Grid Orchestration</div>
+                            <div class="flex items-center text-indigo-300"><span class="mr-2">⛏️</span> AI Mining Optimization</div>
+                            <div class="flex items-center text-indigo-300"><span class="mr-2">🌐</span> Global Battery Network</div>
+                        </div>
+                        <div class="mt-6 text-indigo-400 font-bold text-sm animate-pulse">→ $200B+ VALUATION TARGET ⚡</div>
+                    </div>
+                </div>
+
+                <!-- Global Mobility & Access Network -->
+                <div class="group relative bg-gradient-to-br from-yellow-900/80 to-orange-900/80 p-8 rounded-3xl shadow-2xl border-2 border-yellow-500/50 hover:border-yellow-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-600/20 to-orange-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-5xl group-hover:animate-spin">🌐</div>
+                            <div class="text-right">
+                                <div class="text-xs text-yellow-300 font-bold">MARKET SIZE</div>
+                                <div class="text-lg font-black text-white">$3.5T</div>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-black mb-2 text-white">GLOBAL MOBILITY</h3>
+                        <div class="text-xs text-yellow-200 mb-4 font-bold">STARTUP #20 • INFRASTRUCTURE CONTROL</div>
+                        <p class="text-gray-300 text-sm mb-4">Complete control over global movement of people and data through AI-controlled transport and satellite internet mesh.</p>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center text-yellow-300"><span class="mr-2">✈️</span> AI Airline Scheduling</div>
+                            <div class="flex items-center text-yellow-300"><span class="mr-2">🛰️</span> Satellite Internet Mesh</div>
+                            <div class="flex items-center text-yellow-300"><span class="mr-2">🚌</span> Autonomous Mass Transit</div>
+                        </div>
+                        <div class="mt-6 text-yellow-400 font-bold text-sm animate-pulse">→ $300B+ VALUATION TARGET 🌍</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ecosystem Overview -->
+            <div class="text-center bg-gradient-to-r from-gray-900/90 to-black/90 p-12 rounded-3xl border-2 border-cyan-500/50 shadow-2xl relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-cyan-600/10 to-blue-600/10 animate-pulse"></div>
+                <div class="relative z-10">
+                    <div class="text-7xl mb-6 animate-bounce">🏭</div>
+                    <h3 class="text-4xl md:text-5xl font-black mb-6 gradient-text">THE COMPLETE ECOSYSTEM</h3>
                     <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                        We're crafting something so revolutionary, so mind-bendingly epic, that we can reveal only tantalizing glimpses. 
-                        When we drop this digital bombshell, the entire tech world will never be the same.
+                        These 6 startups represent just the tip of the iceberg. Our complete ecosystem includes 20+ revolutionary companies spanning AI, cybersecurity, space, energy, mobility, governance, and human augmentation. 
+                        Combined addressable market: <span class="text-cyan-400 font-black">$15+ TRILLION</span>
                     </p>
                     
-                    <!-- Countdown Style Elements -->
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-8">
+                    <!-- Ecosystem Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8">
                         <div class="bg-gradient-to-br from-red-600 to-pink-600 p-4 rounded-xl text-center">
-                            <div class="text-2xl font-black text-white">Q2</div>
-                            <div class="text-sm text-red-200">LAUNCH</div>
+                            <div class="text-2xl font-black text-white">20+</div>
+                            <div class="text-sm text-red-200">STARTUPS</div>
                 </div>
                         <div class="bg-gradient-to-br from-orange-600 to-yellow-600 p-4 rounded-xl text-center">
-                            <div class="text-2xl font-black text-white">BETA</div>
-                            <div class="text-sm text-orange-200">ACCESS</div>
+                            <div class="text-2xl font-black text-white">$15T</div>
+                            <div class="text-sm text-orange-200">MARKET SIZE</div>
                 </div>
                         <div class="bg-gradient-to-br from-green-600 to-emerald-600 p-4 rounded-xl text-center">
-                            <div class="text-2xl font-black text-white">VIP</div>
-                            <div class="text-sm text-green-200">PREVIEW</div>
+                            <div class="text-2xl font-black text-white">9</div>
+                            <div class="text-sm text-green-200">SECTORS</div>
                 </div>
                         <div class="bg-gradient-to-br from-purple-600 to-indigo-600 p-4 rounded-xl text-center">
-                            <div class="text-2xl font-black text-white">EPIC</div>
-                            <div class="text-sm text-purple-200">REVEAL</div>
+                            <div class="text-2xl font-black text-white">$1T+</div>
+                            <div class="text-sm text-purple-200">TARGET VALUE</div>
                 </div>
                 </div>
                     
-                    <div class="text-2xl font-black text-yellow-400 animate-pulse mb-4">
-                        🔥 GET READY TO HAVE YOUR WORLD ROCKED 🔥
+                    <!-- Additional Sectors Preview -->
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 max-w-4xl mx-auto mb-8 text-sm">
+                        <div class="bg-gradient-to-br from-blue-600/30 to-cyan-600/30 p-3 rounded-lg border border-blue-400/30">
+                            <div class="text-lg mb-1">🌱</div>
+                            <div class="font-bold text-blue-200">ClimateTech</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-600/30 to-pink-600/30 p-3 rounded-lg border border-purple-400/30">
+                            <div class="text-lg mb-1">🧠</div>
+                            <div class="font-bold text-purple-200">Mental Health</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-600/30 to-emerald-600/30 p-3 rounded-lg border border-green-400/30">
+                            <div class="text-lg mb-1">🎓</div>
+                            <div class="font-bold text-green-200">Education</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-orange-600/30 to-red-600/30 p-3 rounded-lg border border-orange-400/30">
+                            <div class="text-lg mb-1">🏛️</div>
+                            <div class="font-bold text-orange-200">Governance</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-indigo-600/30 to-purple-600/30 p-3 rounded-lg border border-indigo-400/30">
+                            <div class="text-lg mb-1">🎨</div>
+                            <div class="font-bold text-indigo-200">Creator Economy</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-2xl font-black text-cyan-400 animate-pulse mb-4">
+                        🔥 BUILDING THE INFRASTRUCTURE OF HUMAN CIVILIZATION 🔥
             </div>
                     <div class="text-sm text-gray-400">
-                        (Seriously, you're going to want to be sitting down for this one)
+                        The most ambitious venture studio in human history
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION - THE LEGEND -->
+    <!-- STARTUP LAUNCH TIMELINE -->
+    <section class="py-20 px-6 md:px-12 relative overflow-hidden bg-gradient-to-br from-indigo-900/20 via-purple-900/20 to-blue-900/20">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-purple-600/10 animate-pulse"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <div class="inline-block px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-full text-lg mb-8 animate-pulse">
+                    📅 ECOSYSTEM LAUNCH TIMELINE 📅
+                </div>
+                <h2 class="text-5xl md:text-7xl font-black mb-8">
+                    <span class="gradient-text">STARTUP</span>
+                    <br>
+                    <span class="text-white">ROADMAP</span>
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8">
+                    🎯 Strategic rollout of 20+ revolutionary companies across multiple waves, each building on the success of the previous.
+                </p>
+            </div>
+            
+            <!-- Timeline Phases -->
+            <div class="space-y-12">
+                <!-- Phase 1: Foundation -->
+                <div class="relative">
+                    <div class="flex items-center mb-8">
+                        <div class="bg-gradient-to-r from-red-600 to-orange-600 text-white px-6 py-3 rounded-full font-black text-lg mr-6">
+                            PHASE 1 • Q2-Q4 2024
+                        </div>
+                        <div class="flex-1 h-1 bg-gradient-to-r from-red-600 to-orange-600 opacity-30"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-gradient-to-br from-red-900/50 to-orange-900/50 p-6 rounded-xl border border-red-500/30">
+                            <div class="text-3xl mb-3">🛡️</div>
+                            <h4 class="text-lg font-black text-white mb-2">AI Trust & Safety</h4>
+                            <p class="text-sm text-gray-300">Core AI defense platform launching first to establish security foundation for entire ecosystem.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 p-6 rounded-xl border border-purple-500/30">
+                            <div class="text-3xl mb-3">👤</div>
+                            <h4 class="text-lg font-black text-white mb-2">Digital Identity Suite</h4>
+                            <p class="text-sm text-gray-300">Privacy infrastructure enabling secure operations across all other startups.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 p-6 rounded-xl border border-blue-500/30">
+                            <div class="text-3xl mb-3">🕸️</div>
+                            <h4 class="text-lg font-black text-white mb-2">Cyber Defense Platform</h4>
+                            <p class="text-sm text-gray-300">Autonomous threat hunting protecting the entire ecosystem infrastructure.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2: Expansion -->
+                <div class="relative">
+                    <div class="flex items-center mb-8">
+                        <div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-full font-black text-lg mr-6">
+                            PHASE 2 • 2025
+                        </div>
+                        <div class="flex-1 h-1 bg-gradient-to-r from-green-600 to-emerald-600 opacity-30"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div class="bg-gradient-to-br from-green-900/50 to-emerald-900/50 p-6 rounded-xl border border-green-500/30">
+                            <div class="text-3xl mb-3">💰</div>
+                            <h4 class="text-lg font-black text-white mb-2">Fintech Security</h4>
+                            <p class="text-sm text-gray-300">Financial infrastructure powering ecosystem monetization.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 p-6 rounded-xl border border-indigo-500/30">
+                            <div class="text-3xl mb-3">🧠</div>
+                            <h4 class="text-lg font-black text-white mb-2">Mental Health AI</h4>
+                            <p class="text-sm text-gray-300">Supporting ecosystem team wellness at scale.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-yellow-900/50 to-orange-900/50 p-6 rounded-xl border border-yellow-500/30">
+                            <div class="text-3xl mb-3">🌱</div>
+                            <h4 class="text-lg font-black text-white mb-2">ClimateTech Platform</h4>
+                            <p class="text-sm text-gray-300">Environmental solutions for sustainable operations.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-teal-900/50 to-cyan-900/50 p-6 rounded-xl border border-teal-500/30">
+                            <div class="text-3xl mb-3">🎓</div>
+                            <h4 class="text-lg font-black text-white mb-2">Education Acceleration</h4>
+                            <p class="text-sm text-gray-300">Training programs for ecosystem talent pipeline.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3: Domination -->
+                <div class="relative">
+                    <div class="flex items-center mb-8">
+                        <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-black text-lg mr-6">
+                            PHASE 3 • 2026-2027
+                        </div>
+                        <div class="flex-1 h-1 bg-gradient-to-r from-blue-600 to-purple-600 opacity-30"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                        <div class="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 p-6 rounded-xl border border-blue-500/30">
+                            <div class="text-3xl mb-3">🚀</div>
+                            <h4 class="text-lg font-black text-white mb-2">SpaceTech Ops</h4>
+                            <p class="text-sm text-gray-300">Space infrastructure for global expansion.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 p-6 rounded-xl border border-indigo-500/30">
+                            <div class="text-3xl mb-3">⚡</div>
+                            <h4 class="text-lg font-black text-white mb-2">Energy Grid AI</h4>
+                            <p class="text-sm text-gray-300">Powering the global ecosystem infrastructure.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-yellow-900/50 to-orange-900/50 p-6 rounded-xl border border-yellow-500/30">
+                            <div class="text-3xl mb-3">🌐</div>
+                            <h4 class="text-lg font-black text-white mb-2">Global Mobility</h4>
+                            <p class="text-sm text-gray-300">Transportation control for worldwide operations.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 p-6 rounded-xl border border-purple-500/30">
+                            <div class="text-3xl mb-3">🏛️</div>
+                            <h4 class="text-lg font-black text-white mb-2">Governance AI</h4>
+                            <p class="text-sm text-gray-300">Policy automation for regulatory compliance.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-rose-900/50 to-pink-900/50 p-6 rounded-xl border border-rose-500/30">
+                            <div class="text-3xl mb-3">🎨</div>
+                            <h4 class="text-lg font-black text-white mb-2">Creator Economy</h4>
+                            <p class="text-sm text-gray-300">Content monetization across all platforms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Summary -->
+            <div class="text-center mt-16 p-12 bg-gradient-to-r from-gray-900/90 to-black/90 rounded-3xl border-2 border-purple-500/50 shadow-2xl relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10 animate-pulse"></div>
+                <div class="relative z-10">
+                    <div class="text-6xl mb-6 animate-bounce">⏰</div>
+                    <h3 class="text-4xl md:text-5xl font-black mb-6 gradient-text">STRATEGIC ROLLOUT</h3>
+                    <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                        Each phase builds on previous successes, creating compounding advantages and unstoppable momentum across all sectors.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
+                        <div class="bg-gradient-to-br from-red-600/30 to-orange-600/30 p-4 rounded-xl border border-red-400/30">
+                            <div class="text-2xl font-black text-white">3-6</div>
+                            <div class="text-sm text-red-200">Months to MVP</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-600/30 to-emerald-600/30 p-4 rounded-xl border border-green-400/30">
+                            <div class="text-2xl font-black text-white">12-18</div>
+                            <div class="text-sm text-green-200">Months to Scale</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-600/30 to-purple-600/30 p-4 rounded-xl border border-blue-400/30">
+                            <div class="text-2xl font-black text-white">3-5</div>
+                            <div class="text-sm text-blue-200">Years to Domination</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-2xl font-black text-purple-400 animate-pulse">
+                        🔥 THE MOST AGGRESSIVE STARTUP ROLLOUT IN HISTORY 🔥
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUNDER STORY SECTION -->
+    <section class="py-20 px-6 md:px-12 relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-purple-900/20">
+        <div class="absolute inset-0 bg-gradient-to-r from-gray-800/10 to-purple-800/10 animate-pulse"></div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-block px-8 py-3 bg-gradient-to-r from-gray-600 to-purple-600 text-white font-bold rounded-full text-lg mb-8 animate-pulse">
+                    👑 THE ECOSYSTEM ARCHITECT 👑
+                </div>
+                <h2 class="text-5xl md:text-7xl font-black mb-8">
+                    <span class="gradient-text">THE VISION</span>
+                    <br>
+                    <span class="text-white">BEHIND IT ALL</span>
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
+                    💥 Meet the mastermind who dared to build 20+ revolutionary startups simultaneously instead of just one.
+                </p>
+            </div>
+
+            <!-- Founder Story -->
+            <div class="bg-gradient-to-br from-gray-900/80 to-purple-900/80 p-12 rounded-3xl shadow-2xl border-2 border-purple-500/50 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-blue-600/10 animate-pulse"></div>
+                <div class="relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                        <!-- Founder Avatar/Visual -->
+                        <div class="text-center lg:text-left">
+                            <div class="w-48 h-48 mx-auto lg:mx-0 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-8xl mb-6 animate-pulse">
+                                🧠
+                            </div>
+                            <h3 class="text-3xl font-black text-white mb-2">THE ARCHITECT</h3>
+                            <p class="text-lg text-purple-300 font-bold">Ecosystem Builder • Serial Entrepreneur</p>
+                        </div>
+                        
+                        <!-- Story Content -->
+                        <div class="lg:col-span-2">
+                            <div class="space-y-6 text-lg text-gray-300">
+                                <p>
+                                    <span class="text-purple-400 font-bold">"I realized that building one startup at a time was too slow for the challenges humanity faces."</span>
+                                </p>
+                                <p>
+                                    After witnessing countless brilliant ideas die in isolation, struggling with the same infrastructure challenges, competing for the same talent, and moving at glacial speed - the vision became clear: What if we could build 20+ revolutionary startups simultaneously?
+                                </p>
+                                <p>
+                                    <span class="text-blue-400 font-bold">"The venture studio model isn't just more efficient - it's the only way to create the systemic change our world desperately needs."</span>
+                                </p>
+                                <p>
+                                    By sharing infrastructure, cross-pollinating technologies, and building synergistic companies across every critical sector, we can achieve 100X the impact in 1/10th the time.
+                                </p>
+                                <p>
+                                    <span class="text-cyan-400 font-bold">"We're not just building startups. We're architecting the operating system of human civilization."</span>
+                                </p>
+                            </div>
+                            
+                            <!-- Achievement Highlights -->
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                                <div class="text-center p-4 bg-gradient-to-br from-purple-600/30 to-blue-600/30 rounded-xl border border-purple-400/30">
+                                    <div class="text-2xl font-black text-white">15+</div>
+                                    <div class="text-xs text-gray-300">Years Experience</div>
+                                </div>
+                                <div class="text-center p-4 bg-gradient-to-br from-blue-600/30 to-cyan-600/30 rounded-xl border border-blue-400/30">
+                                    <div class="text-2xl font-black text-white">5+</div>
+                                    <div class="text-xs text-gray-300">Successful Exits</div>
+                                </div>
+                                <div class="text-center p-4 bg-gradient-to-br from-green-600/30 to-emerald-600/30 rounded-xl border border-green-400/30">
+                                    <div class="text-2xl font-black text-white">$2B+</div>
+                                    <div class="text-xs text-gray-300">Value Created</div>
+                                </div>
+                                <div class="text-center p-4 bg-gradient-to-br from-red-600/30 to-orange-600/30 rounded-xl border border-red-400/30">
+                                    <div class="text-2xl font-black text-white">∞</div>
+                                    <div class="text-xs text-gray-300">Vision Scale</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Philosophy -->
+            <div class="mt-16 text-center">
+                <div class="bg-gradient-to-r from-purple-900/50 to-blue-900/50 p-8 rounded-2xl border border-purple-500/30 max-w-4xl mx-auto">
+                    <h3 class="text-3xl font-black mb-6 gradient-text">THE PHILOSOPHY</h3>
+                    <div class="text-xl text-gray-300 space-y-4">
+                        <p>
+                            <span class="text-purple-400 font-bold">"Why build one unicorn when you can build an entire ecosystem of world-changing companies?"</span>
+                        </p>
+                        <p>
+                            Traditional venture capital is broken. It's too slow, too fragmented, and too focused on incremental improvements. The CBYUS ecosystem represents a paradigm shift: 
+                            <span class="text-cyan-400 font-bold">parallel innovation across every sector that matters.</span>
+                        </p>
+                        <p>
+                            <span class="text-yellow-400 font-bold">"We're not just building the future. We're building the infrastructure that makes the future inevitable."</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION - THE VENTURE STUDIO -->
     <section id="about" class="py-20 px-6 md:px-12 relative overflow-hidden bg-gradient-to-br from-black via-purple-900/20 to-blue-900/20">
         <div class="absolute inset-0 bg-gradient-to-r from-purple-900/10 to-blue-900/10"></div>
         <div class="relative z-10 max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <div class="inline-block px-8 py-3 bg-gradient-to-r from-red-600 to-orange-600 text-white font-bold rounded-full text-lg mb-8 animate-pulse">
-                    🔥 THE LEGEND BEGINS 🔥
+                    🏭 THE VENTURE STUDIO REVOLUTION 🏭
                 </div>
                 <h2 class="text-5xl md:text-7xl font-black mb-8">
-                    <span class="gradient-text">WE ARE</span>
+                    <span class="gradient-text">CBYUS</span>
                     <br>
-                    <span class="text-white">CBYUS</span>
+                    <span class="text-white">ECOSYSTEM</span>
                 </h2>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
-                    💥 We are digital gladiators, code warriors, and the architects of tomorrow's impossible reality.
+                    💥 We are ecosystem architects, venture builders, and the masterminds behind the most ambitious startup portfolio in human history.
                 </p>
             </div>
 
-            <!-- Epic Story Cards -->
+            <!-- Venture Studio Story Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                <!-- Origin Story -->
+                <!-- The Ecosystem Vision -->
                 <div class="group bg-gradient-to-br from-red-900/50 to-orange-900/50 p-10 rounded-3xl shadow-2xl border-2 border-red-500/50 hover:border-red-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
-                    <div class="text-6xl mb-6 group-hover:animate-bounce">⚡</div>
-                    <h3 class="text-3xl font-black mb-4 text-white">THE ORIGIN STORY</h3>
+                    <div class="text-6xl mb-6 group-hover:animate-bounce">🏭</div>
+                    <h3 class="text-3xl font-black mb-4 text-white">THE ECOSYSTEM VISION</h3>
                     <p class="text-gray-300 text-lg mb-4">
-                        Born from the fusion of pure ambition and relentless innovation, Cbyus emerged when a group of digital rebels decided that "impossible" was just another word for "challenge accepted."
+                        We realized that building one startup at a time was too slow for the challenges humanity faces. So we created the ultimate venture studio: 20+ startups launching simultaneously across every critical sector.
                     </p>
                     <p class="text-gray-300 text-lg">
-                        We obliterate boundaries and forge something absolutely magnificent from the ashes.
+                        Each startup leverages shared infrastructure, cross-pollinating technologies, and multiplying innovation velocity by 100x.
                     </p>
-                    <div class="mt-6 text-red-400 font-bold text-lg animate-pulse">→ LEGENDARY BEGINNINGS 🌟</div>
+                    <div class="mt-6 text-red-400 font-bold text-lg animate-pulse">→ PARALLEL INNOVATION 🚀</div>
             </div>
             
-                <!-- Mission Impossible -->
+                <!-- The Master Plan -->
                 <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 p-10 rounded-3xl shadow-2xl border-2 border-green-500/50 hover:border-green-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
                     <div class="text-6xl mb-6 group-hover:animate-spin">🎯</div>
-                    <h3 class="text-3xl font-black mb-4 text-white">MISSION: IMPOSSIBLE</h3>
+                    <h3 class="text-3xl font-black mb-4 text-white">THE MASTER PLAN</h3>
                     <p class="text-gray-300 text-lg mb-4">
-                        While others dream of changing the world, we're already 10 steps ahead, rewriting the rules of reality itself. Every project we touch becomes a masterpiece of innovation.
+                        Our ecosystem targets $15+ trillion in addressable markets. From AI defense to space infrastructure, energy grids to global mobility - we're building the operating system of human civilization.
                     </p>
                     <p class="text-gray-300 text-lg">
-                        Our mission? Simple. Make the impossible inevitable, one mind-blowing breakthrough at a time.
+                        Each successful startup funds the next wave, creating infinite scaling and market domination across every sector.
                     </p>
-                    <div class="mt-6 text-green-400 font-bold text-lg animate-pulse">→ WORLD DOMINATION 🌍</div>
+                    <div class="mt-6 text-green-400 font-bold text-lg animate-pulse">→ TOTAL ECOSYSTEM CONTROL 👑</div>
         </div>
             </div>
             
-            <!-- Team Power -->
+            <!-- Ecosystem Power -->
             <div class="text-center bg-gradient-to-r from-purple-900/50 to-blue-900/50 p-12 rounded-3xl border-2 border-purple-500/50 shadow-2xl mb-16">
-                <div class="text-7xl mb-6 animate-pulse">🚀</div>
-                <h3 class="text-4xl font-black mb-6 gradient-text">THE DREAM TEAM</h3>
+                <div class="text-7xl mb-6 animate-pulse">🏭</div>
+                <h3 class="text-4xl font-black mb-6 gradient-text">THE ECOSYSTEM ENGINE</h3>
                                     <p class="text-xl text-gray-300 mb-8 max-w-4xl mx-auto">
-                        We are a force of nature. A collective of brilliant minds, fearless innovators, and digital alchemists who turn caffeine and code into pure magic.
+                    We've assembled the ultimate venture studio machine: serial entrepreneurs, domain experts, and world-class engineers working across 20+ startups simultaneously.
                     </p>
                 
-                <!-- Power Stats -->
+                <!-- Ecosystem Stats -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                     <div class="text-center p-4 bg-gradient-to-br from-purple-600/30 to-blue-600/30 rounded-xl backdrop-blur-sm border border-purple-400/30">
-                        <div class="text-3xl font-black gradient-text">∞</div>
-                        <div class="text-sm text-gray-300 font-medium">Creativity Level</div>
+                        <div class="text-3xl font-black gradient-text">20+</div>
+                        <div class="text-sm text-gray-300 font-medium">Parallel Startups</div>
                     </div>
                     <div class="text-center p-4 bg-gradient-to-br from-blue-600/30 to-cyan-600/30 rounded-xl backdrop-blur-sm border border-blue-400/30">
-                        <div class="text-3xl font-black gradient-text">MAX</div>
-                        <div class="text-sm text-gray-300 font-medium">Skill Points</div>
+                        <div class="text-3xl font-black gradient-text">9</div>
+                        <div class="text-sm text-gray-300 font-medium">Critical Sectors</div>
                     </div>
                     <div class="text-center p-4 bg-gradient-to-br from-green-600/30 to-emerald-600/30 rounded-xl backdrop-blur-sm border border-green-400/30">
-                        <div class="text-3xl font-black gradient-text">EPIC</div>
-                        <div class="text-sm text-gray-300 font-medium">Vision Clarity</div>
+                        <div class="text-3xl font-black gradient-text">$15T+</div>
+                        <div class="text-sm text-gray-300 font-medium">Market Opportunity</div>
                     </div>
                     <div class="text-center p-4 bg-gradient-to-br from-red-600/30 to-orange-600/30 rounded-xl backdrop-blur-sm border border-red-400/30">
-                        <div class="text-3xl font-black gradient-text">OVER 9000</div>
-                        <div class="text-sm text-gray-300 font-medium">Power Level</div>
+                        <div class="text-3xl font-black gradient-text">100X</div>
+                        <div class="text-sm text-gray-300 font-medium">Innovation Speed</div>
                     </div>
                 </div>
             </div>
@@ -2101,6 +2521,21 @@
                 setTimeout(() => particle.remove(), 1000);
             }
         }
+        
+        // DEVELOPMENT BANNER FUNCTIONALITY
+        function closeBanner() {
+            const banner = document.getElementById('devBanner');
+            banner.style.transform = 'translateY(-100%)';
+            banner.style.opacity = '0';
+            setTimeout(() => {
+                banner.style.display = 'none';
+                // Adjust body padding when banner is closed
+                document.body.style.paddingTop = '0';
+            }, 300);
+        }
+        
+        // Set initial body padding for banner
+        document.body.style.paddingTop = '80px'; // Adjust based on banner height
         
         // MOBILE MENU FUNCTIONALITY
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
