@@ -562,8 +562,8 @@
             }
         }
         
-        /* MATRIX RAIN EFFECT */
-        .matrix-container {
+        /* CLEAN BACKGROUND PATTERN */
+        .clean-bg-pattern {
             position: fixed;
             top: 0;
             left: 0;
@@ -572,23 +572,11 @@
             pointer-events: none;
             z-index: 0;
             overflow: hidden;
-            opacity: 0.1;
-        }
-        
-        .matrix-column {
-            position: absolute;
-            top: -100px;
-            color: #00ff41;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 14px;
-            animation: matrix-fall linear infinite;
-        }
-        
-        @keyframes matrix-fall {
-            to {
-                transform: translateY(100vh);
-            }
+            opacity: 0.05;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 20, 147, 0.05) 0%, transparent 50%);
         }
         
         /* GLITCH EFFECT - FIXED FOR MOBILE */
@@ -653,8 +641,8 @@
                 display: none; /* Reduce particles on mobile for performance */
             }
             
-            .matrix-container {
-                opacity: 0.05; /* Reduce matrix effect on mobile */
+            .clean-bg-pattern {
+                opacity: 0.03; /* Reduce background effect on mobile */
             }
             
             .neon-glow {
@@ -871,6 +859,199 @@
             }
         }
         
+        /* MIND-BLOWING GLASSMORPHISM */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(31, 38, 135, 0.37),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        /* INSANE NEON BORDER ANIMATION */
+        .neon-border {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .neon-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(138, 43, 226, 0.8), 
+                rgba(0, 191, 255, 0.8), 
+                rgba(255, 20, 147, 0.8), 
+                transparent);
+            animation: neon-sweep 3s linear infinite;
+        }
+        
+        @keyframes neon-sweep {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* CRAZY TEXT REVEAL EFFECT */
+        .text-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .text-reveal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(138, 43, 226, 0.8) 50%, 
+                transparent 100%);
+            transform: translateX(-100%);
+            animation: text-reveal-sweep 2s ease-in-out infinite;
+        }
+        
+        @keyframes text-reveal-sweep {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* INSANE HOVER TRANSFORMATIONS */
+        .hover-3d {
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            transform-style: preserve-3d;
+        }
+        
+        .hover-3d:hover {
+            transform: perspective(1000px) rotateY(15deg) rotateX(10deg) translateZ(50px);
+            box-shadow: 
+                -20px 20px 60px rgba(138, 43, 226, 0.4),
+                -40px 40px 120px rgba(0, 191, 255, 0.3);
+        }
+        
+        /* SUBTLE PARTICLE TRAILS - Reduced intensity */
+        .particle-trail {
+            position: relative;
+        }
+        
+        .particle-trail::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, 
+                rgba(138, 43, 226, 0.3) 0%, 
+                transparent 70%);
+            animation: subtle-particle-pulse 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes subtle-particle-pulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: scale(1.1);
+                opacity: 0.5;
+            }
+        }
+        
+        /* CRAZY MORPHING BACKGROUNDS */
+        .morphing-bg {
+            background: linear-gradient(45deg, 
+                rgba(138, 43, 226, 0.1),
+                rgba(0, 191, 255, 0.1),
+                rgba(255, 20, 147, 0.1),
+                rgba(138, 43, 226, 0.1));
+            background-size: 400% 400%;
+            animation: morphing-shift 8s ease infinite;
+        }
+        
+        @keyframes morphing-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* INSANE CURSOR EFFECTS */
+        .cursor-glow {
+            position: relative;
+        }
+        
+        .cursor-glow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, 
+                rgba(138, 43, 226, 0.8) 0%, 
+                transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .cursor-glow:hover::before {
+            width: 200px;
+            height: 200px;
+        }
+        
+        /* SUBTLE FLOATING ICONS - Reduced intensity */
+        .floating-icon {
+            animation: subtle-float 8s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+        }
+        
+        .floating-icon:nth-child(1) { animation-delay: 0s; }
+        .floating-icon:nth-child(2) { animation-delay: 1s; }
+        .floating-icon:nth-child(3) { animation-delay: 2s; }
+        .floating-icon:nth-child(4) { animation-delay: 3s; }
+        .floating-icon:nth-child(5) { animation-delay: 4s; }
+        .floating-icon:nth-child(6) { animation-delay: 5s; }
+        .floating-icon:nth-child(7) { animation-delay: 6s; }
+        
+        @keyframes subtle-float {
+            0%, 100% { 
+                transform: translateY(0px);
+                filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+            }
+            50% { 
+                transform: translateY(-15px);
+                filter: drop-shadow(0 0 12px rgba(0, 191, 255, 0.4));
+            }
+        }
+        
+        /* SUBTLE GLOW EFFECTS - Reduced intensity */
+        .insane-glow {
+            animation: subtle-glow-pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes subtle-glow-pulse {
+            0%, 100% { 
+                filter: drop-shadow(0 0 10px currentColor) brightness(1);
+            }
+            50% { 
+                filter: drop-shadow(0 0 20px currentColor) brightness(1.1);
+            }
+        }
+        
+        /* STABLE SHAPES - No morphing to reduce flickering */
+        .morphing-shape {
+            animation: none;
+        }
+        
         /* MOUSE TRACKING EFFECTS */
         .mouse-tracker {
             position: fixed;
@@ -1002,8 +1183,8 @@
         </div>
     </div>
 
-    <!-- MATRIX RAIN BACKGROUND -->
-    <div class="matrix-container" id="matrixContainer"></div>
+    <!-- CLEAN BACKGROUND PATTERN -->
+    <div class="clean-bg-pattern" id="cleanBgPattern"></div>
     
     <!-- PARTICLE SYSTEM -->
     <div class="particles-container" id="particlesContainer"></div>
@@ -1160,9 +1341,9 @@
         <!-- INSANE BACKGROUND EFFECTS -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <!-- Morphing Orbs -->
-            <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse transform-3d" style="animation: float-3d 8s ease-in-out infinite;"></div>
-            <div class="absolute top-40 right-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-1000 transform-3d" style="animation: float-3d 10s ease-in-out infinite reverse;"></div>
-            <div class="absolute -bottom-8 left-20 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-2000 transform-3d" style="animation: float-3d 12s ease-in-out infinite;"></div>
+            <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse transform-3d particle-trail" style="animation: float-3d 8s ease-in-out infinite;"></div>
+            <div class="absolute top-40 right-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-1000 transform-3d particle-trail" style="animation: float-3d 10s ease-in-out infinite reverse;"></div>
+            <div class="absolute -bottom-8 left-20 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-2000 transform-3d particle-trail" style="animation: float-3d 12s ease-in-out infinite;"></div>
             
             <!-- Holographic Grid -->
             <div class="absolute inset-0 opacity-10">
@@ -1183,9 +1364,20 @@
             </div>
             
             <!-- Floating Geometric Shapes -->
-            <div class="absolute top-1/4 left-1/4 w-16 h-16 border-2 border-cyan-400 transform rotate-45 animate-spin opacity-20" style="animation-duration: 20s;"></div>
-            <div class="absolute top-3/4 right-1/4 w-12 h-12 border-2 border-purple-400 transform rotate-45 animate-spin opacity-20" style="animation-duration: 15s; animation-direction: reverse;"></div>
-            <div class="absolute top-1/2 left-3/4 w-20 h-20 border-2 border-pink-400 transform rotate-45 animate-spin opacity-20" style="animation-duration: 25s;"></div>
+            <div class="absolute top-1/4 left-1/4 w-16 h-16 border-2 border-cyan-400 transform rotate-45 animate-spin opacity-20 neon-border" style="animation-duration: 20s;"></div>
+            <div class="absolute top-3/4 right-1/4 w-12 h-12 border-2 border-purple-400 transform rotate-45 animate-spin opacity-20 neon-border" style="animation-duration: 15s; animation-direction: reverse;"></div>
+            <div class="absolute top-1/2 left-3/4 w-20 h-20 border-2 border-pink-400 transform rotate-45 animate-spin opacity-20 neon-border" style="animation-duration: 25s;"></div>
+            
+            <!-- Real-World Tech Elements -->
+            <div class="absolute top-1/3 right-1/4 text-3xl opacity-20 floating-icon" style="animation-delay: 1s;">💻</div>
+            <div class="absolute bottom-1/3 left-1/6 text-2xl opacity-20 floating-icon" style="animation-delay: 2s;">📱</div>
+            <div class="absolute top-2/3 right-1/6 text-2xl opacity-20 floating-icon" style="animation-delay: 3s;">🔧</div>
+            <div class="absolute top-1/6 right-1/3 text-xl opacity-20 floating-icon" style="animation-delay: 4s;">⚙️</div>
+            
+            <!-- Real-World Application Icons -->
+            <div class="absolute top-1/4 left-1/3 text-xl opacity-15 floating-icon" style="animation-delay: 5s;">🏥</div>
+            <div class="absolute bottom-1/4 right-1/3 text-xl opacity-15 floating-icon" style="animation-delay: 6s;">🏭</div>
+            <div class="absolute top-3/4 left-1/4 text-xl opacity-15 floating-icon" style="animation-delay: 7s;">🎓</div>
         </div>
         
         <div class="text-center max-w-6xl relative z-10 transform-3d">
@@ -1195,30 +1387,30 @@
                 </span>
             </div>
             
-            <h1 class="text-4xl sm:text-5xl md:text-8xl font-black leading-tight mb-8 gradient-text animate-pulse transform-3d">
-                <span class="block sm:inline gradient-text morphing-text">THE ULTIMATE</span> <br class="hidden sm:block">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 neon-glow block sm:inline morphing-text holographic" style="animation-delay: 1s;">
+            <h1 class="text-4xl sm:text-5xl md:text-8xl font-black leading-tight mb-8 gradient-text animate-pulse transform-3d text-reveal">
+                <span class="block sm:inline gradient-text neon-border">THE ULTIMATE</span> <br class="hidden sm:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 neon-glow block sm:inline holographic particle-trail" style="animation-delay: 1s;">
                     STARTUP
                 </span><br class="block sm:hidden">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 neon-glow block sm:inline font-black morphing-text holographic" style="animation-delay: 2s;">ECOSYSTEM</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 neon-glow block sm:inline font-black holographic particle-trail" style="animation-delay: 2s;">ECOSYSTEM</span>
             </h1>
             
             <p class="text-xl md:text-2xl text-gray-300 mb-4 font-light">
-                🚀 Building 20+ Revolutionary Startups That Will Reshape The World
+                🚀 Building Revolutionary Projects That Will Reshape The World
             </p>
             <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-4xl mx-auto">
-                We are the world's most ambitious venture studio, launching an entire ecosystem of revolutionary companies simultaneously. 
-                From AI defense to space infrastructure, each startup solves impossible problems and creates trillion-dollar markets.
+                We are building revolutionary projects that solve impossible problems and create trillion-dollar markets. 
+                From AI life assistants to universal management systems, each project represents the future of technology.
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-                <a href="https://cbyus.info/" class="group inline-flex items-center px-6 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-white btn-primary shadow-2xl text-base sm:text-lg transform hover:scale-110 transition-all duration-500 w-full sm:w-auto justify-center max-w-xs energy-button holographic scan-lines card-3d">
+                <a href="https://cbyus.info/" class="group inline-flex items-center px-6 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-white btn-primary shadow-2xl text-base sm:text-lg transform hover:scale-110 transition-all duration-500 w-full sm:w-auto justify-center max-w-xs energy-button holographic scan-lines card-3d glass-card hover-3d cursor-glow">
                     <span class="mr-2 text-2xl animate-pulse">🏭</span>
                     <span class="hidden sm:inline relative z-10">EXPLORE THE ECOSYSTEM</span>
                     <span class="sm:hidden relative z-10">EXPLORE</span>
                     <span class="ml-2 group-hover:translate-x-2 transition-transform duration-500 text-xl">→</span>
                 </a>
-                <a href="#projects" class="group inline-flex items-center px-6 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-white border-2 border-white hover:bg-white hover:text-black transition-all duration-500 text-base sm:text-lg transform hover:scale-110 w-full sm:w-auto justify-center max-w-xs energy-button holographic scan-lines card-3d">
+                <a href="#projects" class="group inline-flex items-center px-6 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-white border-2 border-white hover:bg-white hover:text-black transition-all duration-500 text-base sm:text-lg transform hover:scale-110 w-full sm:w-auto justify-center max-w-xs energy-button holographic scan-lines card-3d glass-card hover-3d cursor-glow">
                     <span class="mr-2 text-2xl animate-pulse">🚀</span>
                     <span class="hidden sm:inline relative z-10">VIEW STARTUP PORTFOLIO</span>
                     <span class="sm:hidden relative z-10">PORTFOLIO</span>
@@ -1227,20 +1419,20 @@
             
             <!-- Energy Stats -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                <div class="text-center p-4 bg-gray-800 bg-opacity-50 rounded-xl backdrop-blur-sm border border-gray-600">
-                    <div class="text-3xl font-black gradient-text">∞</div>
+                <div class="text-center p-4 bg-gray-800 bg-opacity-50 rounded-xl backdrop-blur-sm border border-gray-600 glass-card hover-3d cursor-glow particle-trail">
+                    <div class="text-3xl font-black gradient-text neon-border">∞</div>
                     <div class="text-sm text-gray-400 font-medium">Possibilities</div>
                 </div>
-                <div class="text-center p-4 bg-gray-800 bg-opacity-50 rounded-xl backdrop-blur-sm border border-gray-600">
-                    <div class="text-3xl font-black gradient-text">24/7</div>
+                <div class="text-center p-4 bg-gray-800 bg-opacity-50 rounded-xl backdrop-blur-sm border border-gray-600 glass-card hover-3d cursor-glow particle-trail">
+                    <div class="text-3xl font-black gradient-text neon-border">24/7</div>
                     <div class="text-sm text-gray-400 font-medium">Innovation</div>
                 </div>
-                <div class="text-center p-4 bg-gray-800 bg-opacity-50 rounded-xl backdrop-blur-sm border border-gray-600">
-                    <div class="text-3xl font-black gradient-text">100%</div>
+                <div class="text-center p-4 bg-gray-800 bg-opacity-50 rounded-xl backdrop-blur-sm border border-gray-600 glass-card hover-3d cursor-glow particle-trail">
+                    <div class="text-3xl font-black gradient-text neon-border">100%</div>
                     <div class="text-sm text-gray-400 font-medium">Dedication</div>
                 </div>
-                <div class="text-center p-4 bg-gray-800 bg-opacity-50 rounded-xl backdrop-blur-sm border border-gray-600">
-                    <div class="text-3xl font-black gradient-text">ZERO</div>
+                <div class="text-center p-4 bg-gray-800 bg-opacity-50 rounded-xl backdrop-blur-sm border border-gray-600 glass-card hover-3d cursor-glow particle-trail">
+                    <div class="text-3xl font-black gradient-text neon-border">ZERO</div>
                     <div class="text-sm text-gray-400 font-medium">Compromise</div>
                 </div>
             </div>
@@ -1252,14 +1444,14 @@
         <div class="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 animate-pulse"></div>
         <div class="ticker-container relative z-10">
             <div class="ticker-content">
-                <span class="ticker-item">🚀 20+ STARTUPS IN DEVELOPMENT</span>
-                <span class="ticker-item">⚡ $10T+ ADDRESSABLE MARKET</span>
-                <span class="ticker-item">🔥 ECOSYSTEM VALUATION: $500B+</span>
+                <span class="ticker-item">🚀 3 REVOLUTIONARY PROJECTS</span>
+                <span class="ticker-item">⚡ $1T+ ADDRESSABLE MARKET</span>
+                <span class="ticker-item">🔥 PROJECT VALUATION: $100B+</span>
                 <span class="ticker-item">💎 REVOLUTIONARY TECHNOLOGIES</span>
-                <span class="ticker-item">🌟 VENTURE STUDIO MODEL</span>
+                <span class="ticker-item">🌟 INNOVATION STUDIO MODEL</span>
                 <span class="ticker-item">🎯 WORLD-CHANGING IMPACT</span>
-                <span class="ticker-item">🚀 20+ STARTUPS IN DEVELOPMENT</span>
-                <span class="ticker-item">⚡ $10T+ ADDRESSABLE MARKET</span>
+                <span class="ticker-item">🚀 3 REVOLUTIONARY PROJECTS</span>
+                <span class="ticker-item">⚡ $1T+ ADDRESSABLE MARKET</span>
             </div>
         </div>
     </section>
@@ -1280,7 +1472,7 @@
                     <span class="text-white">SUPERPOWERS</span>
                 </h2>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-                    🌟 Why our venture studio model creates unstoppable competitive advantages across 20+ startups:
+                    🌟 Why our innovation studio model creates unstoppable competitive advantages across our revolutionary projects:
                 </p>
             </div>
             
@@ -1289,7 +1481,7 @@
                 <div class="group bg-gradient-to-br from-purple-900/50 to-blue-900/50 p-8 rounded-2xl shadow-2xl border border-purple-500/30 hover:border-purple-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 float-animation pulse-glow">
                     <div class="text-5xl mb-6 group-hover:animate-spin">🏗️</div>
                     <h3 class="text-2xl font-black mb-4 text-white">SHARED INFRASTRUCTURE</h3>
-                    <p class="text-gray-300 mb-4">All 20+ startups leverage common AI, security, and development infrastructure. What costs others millions, we share across our ecosystem.</p>
+                    <p class="text-gray-300 mb-4">All our projects leverage common AI, security, and development infrastructure. What costs others millions, we share across our innovation ecosystem.</p>
                     <div class="text-purple-400 font-bold text-sm">→ 10X COST EFFICIENCY</div>
             </div>
                 
@@ -1313,7 +1505,7 @@
                 <div class="group bg-gradient-to-br from-pink-900/50 to-rose-900/50 p-8 rounded-2xl shadow-2xl border border-pink-500/30 hover:border-pink-400 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105">
                     <div class="text-5xl mb-6 group-hover:animate-ping">⚖️</div>
                     <h3 class="text-2xl font-black mb-4 text-white">RISK DIVERSIFICATION</h3>
-                    <p class="text-gray-300 mb-4">Traditional startups bet everything on one idea. We spread risk across 20+ revolutionary companies in different sectors and timelines.</p>
+                                            <p class="text-gray-300 mb-4">Traditional projects bet everything on one idea. We spread risk across 3 revolutionary projects in different sectors and timelines.</p>
                     <div class="text-pink-400 font-bold text-sm">→ BULLETPROOF PORTFOLIO</div>
                 </div>
                 
@@ -1337,14 +1529,14 @@
             <!-- Ecosystem Power Statement -->
             <div class="text-center mt-16 p-8 bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-2xl border border-purple-500/30">
                 <h3 class="text-3xl md:text-4xl font-black mb-4 gradient-text">THE ECOSYSTEM ADVANTAGE</h3>
-                <p class="text-xl text-gray-300 mb-6">We are architecting the operating system of human civilization, building revolutionary startups across every critical sector simultaneously.</p>
+                <p class="text-xl text-gray-300 mb-6">We are architecting revolutionary projects that solve critical problems and create new markets across multiple sectors.</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-6">
                     <div class="bg-gradient-to-br from-red-600/30 to-orange-600/30 p-4 rounded-xl border border-red-400/30">
-                        <div class="text-2xl font-black text-white">20+</div>
-                        <div class="text-sm text-red-200">Simultaneous Startups</div>
+                        <div class="text-2xl font-black text-white">3</div>
+                        <div class="text-sm text-red-200">Revolutionary Projects</div>
                     </div>
                     <div class="bg-gradient-to-br from-green-600/30 to-emerald-600/30 p-4 rounded-xl border border-green-400/30">
-                        <div class="text-2xl font-black text-white">$15T+</div>
+                        <div class="text-2xl font-black text-white">$1T+</div>
                         <div class="text-sm text-green-200">Total Market Size</div>
                     </div>
                     <div class="bg-gradient-to-br from-blue-600/30 to-cyan-600/30 p-4 rounded-xl border border-blue-400/30">
@@ -1377,150 +1569,87 @@
                     🎯 Each startup in our ecosystem targets trillion-dollar markets with revolutionary technology that solves impossible problems.
                 </p>
                 <div class="text-lg text-yellow-400 font-bold animate-bounce">
-                    ⚠️ 20+ WORLD-CHANGING COMPANIES IN DEVELOPMENT ⚠️
+                    ⚠️ 3 REVOLUTIONARY PROJECTS IN DEVELOPMENT ⚠️
                 </div>
                 </div>
             
             <!-- Revolutionary Projects Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 
-                <!-- AI Trust & Safety Platform -->
-                <div class="group relative bg-gradient-to-br from-red-900/80 to-orange-900/80 p-8 rounded-3xl shadow-2xl border-2 border-red-500/50 hover:border-red-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
+                <!-- Zyra AI Life Assistant -->
+                <div class="group relative bg-gradient-to-br from-red-900/80 to-orange-900/80 p-8 rounded-3xl shadow-2xl border-2 border-red-500/50 hover:border-red-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105 glass-card hover-3d cursor-glow">
                     <div class="absolute inset-0 bg-gradient-to-br from-red-600/20 to-orange-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
                         <div class="flex justify-between items-start mb-4">
-                            <div class="text-5xl group-hover:animate-spin">🛡️</div>
+                            <div class="text-5xl group-hover:animate-spin">🤖</div>
                             <div class="text-right">
                                 <div class="text-xs text-red-300 font-bold">MARKET SIZE</div>
-                                <div class="text-lg font-black text-white">$850B</div>
+                                <div class="text-lg font-black text-white">$400B</div>
                             </div>
                         </div>
-                        <h3 class="text-2xl font-black mb-2 text-white">AI TRUST & SAFETY</h3>
-                        <div class="text-xs text-red-200 mb-4 font-bold">STARTUP #1 • AI DEFENSE PLATFORM</div>
-                        <p class="text-gray-300 text-sm mb-4">Complete AI safety ecosystem protecting against jailbreaks, content poisoning, and manipulation. The first unbreakable AI defense system.</p>
+                        <h3 class="text-2xl font-black mb-2 text-white">ZYRA AI</h3>
+                        <div class="text-xs text-red-200 mb-4 font-bold">PROJECT #1 • AI LIFE ASSISTANT</div>
+                        <p class="text-gray-300 text-sm mb-4">AI-powered personal assistant that helps users manage daily tasks, make informed decisions, and optimize their personal and professional productivity.</p>
                         <div class="space-y-2 text-xs">
-                            <div class="flex items-center text-red-300"><span class="mr-2">⚡</span> AI Jailbreak Defense</div>
-                            <div class="flex items-center text-red-300"><span class="mr-2">🧠</span> Content Poisoning Detection</div>
-                            <div class="flex items-center text-red-300"><span class="mr-2">🔒</span> Deepfake Prevention</div>
+                            <div class="flex items-center text-red-300"><span class="mr-2">📅</span> Smart Calendar Management</div>
+                            <div class="flex items-center text-red-300"><span class="mr-2">💡</span> AI-Powered Recommendations</div>
+                            <div class="flex items-center text-red-300"><span class="mr-2">📊</span> Productivity Analytics</div>
                         </div>
-                        <div class="mt-6 text-red-400 font-bold text-sm animate-pulse">→ $50B+ VALUATION TARGET 💎</div>
+                        <div class="mt-6 text-red-400 font-bold text-sm animate-pulse">→ $25B+ VALUATION TARGET 💎</div>
                     </div>
                 </div>
 
-                <!-- Digital Identity & Privacy Suite -->
-                <div class="group relative bg-gradient-to-br from-purple-900/80 to-pink-900/80 p-8 rounded-3xl shadow-2xl border-2 border-purple-500/50 hover:border-purple-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
+                <!-- Universal Management Studio -->
+                <div class="group relative bg-gradient-to-br from-purple-900/80 to-pink-900/80 p-8 rounded-3xl shadow-2xl border-2 border-purple-500/50 hover:border-purple-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105 glass-card hover-3d cursor-glow">
                     <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
                         <div class="flex justify-between items-start mb-4">
-                            <div class="text-5xl group-hover:animate-bounce">👤</div>
+                            <div class="text-5xl group-hover:animate-bounce">🏢</div>
                             <div class="text-right">
                                 <div class="text-xs text-purple-300 font-bold">MARKET SIZE</div>
-                                <div class="text-lg font-black text-white">$320B</div>
+                                <div class="text-lg font-black text-white">$300B</div>
                 </div>
                         </div>
-                        <h3 class="text-2xl font-black mb-2 text-white">DIGITAL IDENTITY</h3>
-                        <div class="text-xs text-purple-200 mb-4 font-bold">STARTUP #2 • PRIVACY CONTROL SUITE</div>
-                        <p class="text-gray-300 text-sm mb-4">Revolutionary privacy platform with disposable identities, digital funeral services, and complete reputation control.</p>
+                        <h3 class="text-2xl font-black mb-2 text-white">UMS PLATFORM</h3>
+                        <div class="text-xs text-purple-200 mb-4 font-bold">PROJECT #2 • APPLICATION BUILDING PLATFORM</div>
+                        <p class="text-gray-300 text-sm mb-4">Low-code platform for building custom business applications across healthcare, manufacturing, education, retail, and other industries without extensive coding.</p>
                         <div class="space-y-2 text-xs">
-                            <div class="flex items-center text-purple-300"><span class="mr-2">🎭</span> Disposable Identity System</div>
-                            <div class="flex items-center text-purple-300"><span class="mr-2">⚰️</span> Digital Funeral Service</div>
-                            <div class="flex items-center text-purple-300"><span class="mr-2">👻</span> Reputation Guardian AI</div>
+                            <div class="flex items-center text-purple-300"><span class="mr-2">🏥</span> Patient Management Systems</div>
+                            <div class="flex items-center text-purple-300"><span class="mr-2">🏭</span> Inventory & Production Tracking</div>
+                            <div class="flex items-center text-purple-300"><span class="mr-2">🎓</span> Student Information Systems</div>
                         </div>
-                        <div class="mt-6 text-purple-400 font-bold text-sm animate-pulse">→ $25B+ VALUATION TARGET 💎</div>
+                        <div class="mt-6 text-purple-400 font-bold text-sm animate-pulse">→ $20B+ VALUATION TARGET 💎</div>
                 </div>
                 </div>
                 
-                <!-- Fintech & Crypto Security Platform -->
-                <div class="group relative bg-gradient-to-br from-green-900/80 to-emerald-900/80 p-8 rounded-3xl shadow-2xl border-2 border-green-500/50 hover:border-green-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
+                <!-- Control Center -->
+                <div class="group relative bg-gradient-to-br from-green-900/80 to-emerald-900/80 p-8 rounded-3xl shadow-2xl border-2 border-green-500/50 hover:border-green-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105 glass-card hover-3d cursor-glow">
                     <div class="absolute inset-0 bg-gradient-to-br from-green-600/20 to-emerald-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
                         <div class="flex justify-between items-start mb-4">
-                            <div class="text-5xl group-hover:animate-pulse">💰</div>
+                            <div class="text-5xl group-hover:animate-pulse">🎛️</div>
                             <div class="text-right">
                                 <div class="text-xs text-green-300 font-bold">MARKET SIZE</div>
-                                <div class="text-lg font-black text-white">$1.2T</div>
+                                <div class="text-lg font-black text-white">$300B</div>
                             </div>
                         </div>
-                        <h3 class="text-2xl font-black mb-2 text-white">FINTECH SECURITY</h3>
-                        <div class="text-xs text-green-200 mb-4 font-bold">STARTUP #6 • CRYPTO & SUPPLY CHAIN</div>
-                        <p class="text-gray-300 text-sm mb-4">Complete financial security ecosystem with dead man's switches, smart contract protection, and supply chain verification.</p>
+                        <h3 class="text-2xl font-black mb-2 text-white">CC PLATFORM</h3>
+                        <div class="text-xs text-green-200 mb-4 font-bold">PROJECT #3 • CENTRALIZED CONTROL SYSTEM</div>
+                        <p class="text-gray-300 text-sm mb-4">Centralized dashboard for monitoring and controlling multiple systems, applications, and operations from a single interface with real-time alerts and analytics.</p>
                         <div class="space-y-2 text-xs">
-                            <div class="flex items-center text-green-300"><span class="mr-2">⚰️</span> Dead Man's Switch</div>
-                            <div class="flex items-center text-green-300"><span class="mr-2">🔗</span> Blockchain Security</div>
-                            <div class="flex items-center text-green-300"><span class="mr-2">🏦</span> Secure Financial Browser</div>
+                            <div class="flex items-center text-green-300"><span class="mr-2">📊</span> Real-time Dashboards</div>
+                            <div class="flex items-center text-green-300"><span class="mr-2">🔔</span> Smart Alert System</div>
+                            <div class="flex items-center text-green-300"><span class="mr-2">📈</span> Performance Analytics</div>
                         </div>
-                        <div class="mt-6 text-green-400 font-bold text-sm animate-pulse">→ $75B+ VALUATION TARGET 💎</div>
+                        <div class="mt-6 text-green-400 font-bold text-sm animate-pulse">→ $15B+ VALUATION TARGET 💎</div>
                     </div>
                 </div>
 
-                <!-- SpaceTech Operations Platform -->
-                <div class="group relative bg-gradient-to-br from-blue-900/80 to-cyan-900/80 p-8 rounded-3xl shadow-2xl border-2 border-blue-500/50 hover:border-blue-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="text-5xl group-hover:animate-spin">🚀</div>
-                            <div class="text-right">
-                                <div class="text-xs text-blue-300 font-bold">MARKET SIZE</div>
-                                <div class="text-lg font-black text-white">$450B</div>
-                </div>
-                </div>
-                        <h3 class="text-2xl font-black mb-2 text-white">SPACETECH OPS</h3>
-                        <div class="text-xs text-blue-200 mb-4 font-bold">STARTUP #13 • SPACE INFRASTRUCTURE</div>
-                        <p class="text-gray-300 text-sm mb-4">Complete space operations platform managing satellite fleets, predicting collisions, and enabling interplanetary commerce.</p>
-                        <div class="space-y-2 text-xs">
-                            <div class="flex items-center text-blue-300"><span class="mr-2">🛰️</span> Satellite Fleet Management</div>
-                            <div class="flex items-center text-blue-300"><span class="mr-2">💫</span> Collision Prediction AI</div>
-                            <div class="flex items-center text-blue-300"><span class="mr-2">🌙</span> Lunar Supply Chain</div>
-                        </div>
-                        <div class="mt-6 text-blue-400 font-bold text-sm animate-pulse">→ $100B+ VALUATION TARGET 🌌</div>
-                </div>
-                </div>
+
             
-                <!-- Global Energy Optimization -->
-                <div class="group relative bg-gradient-to-br from-indigo-900/80 to-purple-900/80 p-8 rounded-3xl shadow-2xl border-2 border-indigo-500/50 hover:border-indigo-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div class="relative z-10">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="text-5xl group-hover:animate-bounce">⚡</div>
-                            <div class="text-right">
-                                <div class="text-xs text-indigo-300 font-bold">MARKET SIZE</div>
-                                <div class="text-lg font-black text-white">$2.8T</div>
-                            </div>
-                        </div>
-                        <h3 class="text-2xl font-black mb-2 text-white">ENERGY GRID AI</h3>
-                        <div class="text-xs text-indigo-200 mb-4 font-bold">STARTUP #16 • GLOBAL ENERGY PLATFORM</div>
-                        <p class="text-gray-300 text-sm mb-4">AI-powered global energy orchestration balancing renewable sources, optimizing mining operations, and managing storage networks.</p>
-                        <div class="space-y-2 text-xs">
-                            <div class="flex items-center text-indigo-300"><span class="mr-2">🔋</span> Smart Grid Orchestration</div>
-                            <div class="flex items-center text-indigo-300"><span class="mr-2">⛏️</span> AI Mining Optimization</div>
-                            <div class="flex items-center text-indigo-300"><span class="mr-2">🌐</span> Global Battery Network</div>
-                        </div>
-                        <div class="mt-6 text-indigo-400 font-bold text-sm animate-pulse">→ $200B+ VALUATION TARGET ⚡</div>
-                    </div>
-                </div>
 
-                <!-- Global Mobility & Access Network -->
-                <div class="group relative bg-gradient-to-br from-yellow-900/80 to-orange-900/80 p-8 rounded-3xl shadow-2xl border-2 border-yellow-500/50 hover:border-yellow-400 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-600/20 to-orange-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="text-5xl group-hover:animate-spin">🌐</div>
-                            <div class="text-right">
-                                <div class="text-xs text-yellow-300 font-bold">MARKET SIZE</div>
-                                <div class="text-lg font-black text-white">$3.5T</div>
-                            </div>
-                        </div>
-                        <h3 class="text-2xl font-black mb-2 text-white">GLOBAL MOBILITY</h3>
-                        <div class="text-xs text-yellow-200 mb-4 font-bold">STARTUP #20 • INFRASTRUCTURE CONTROL</div>
-                        <p class="text-gray-300 text-sm mb-4">Complete control over global movement of people and data through AI-controlled transport and satellite internet mesh.</p>
-                        <div class="space-y-2 text-xs">
-                            <div class="flex items-center text-yellow-300"><span class="mr-2">✈️</span> AI Airline Scheduling</div>
-                            <div class="flex items-center text-yellow-300"><span class="mr-2">🛰️</span> Satellite Internet Mesh</div>
-                            <div class="flex items-center text-yellow-300"><span class="mr-2">🚌</span> Autonomous Mass Transit</div>
-                        </div>
-                        <div class="mt-6 text-yellow-400 font-bold text-sm animate-pulse">→ $300B+ VALUATION TARGET 🌍</div>
-                    </div>
-                </div>
+
+
             </div>
 
             <!-- Ecosystem Overview -->
@@ -1530,18 +1659,18 @@
                     <div class="text-7xl mb-6 animate-bounce">🏭</div>
                     <h3 class="text-4xl md:text-5xl font-black mb-6 gradient-text">THE COMPLETE ECOSYSTEM</h3>
                     <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                        These 6 startups represent just the tip of the iceberg. Our complete ecosystem includes 20+ revolutionary companies spanning AI, cybersecurity, space, energy, mobility, governance, and human augmentation. 
-                        Combined addressable market: <span class="text-cyan-400 font-black">$15+ TRILLION</span>
+                        These 3 projects represent our current focus areas. Our innovation studio includes revolutionary projects spanning AI life assistance, application building platforms, and control systems. 
+                        Combined addressable market: <span class="text-cyan-400 font-black">$1+ TRILLION</span>
                     </p>
                     
                     <!-- Ecosystem Stats -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8">
                         <div class="bg-gradient-to-br from-red-600 to-pink-600 p-4 rounded-xl text-center">
-                            <div class="text-2xl font-black text-white">20+</div>
-                            <div class="text-sm text-red-200">STARTUPS</div>
+                            <div class="text-2xl font-black text-white">3</div>
+                            <div class="text-sm text-red-200">PROJECTS</div>
                 </div>
                         <div class="bg-gradient-to-br from-orange-600 to-yellow-600 p-4 rounded-xl text-center">
-                            <div class="text-2xl font-black text-white">$15T</div>
+                            <div class="text-2xl font-black text-white">$1T</div>
                             <div class="text-sm text-orange-200">MARKET SIZE</div>
                 </div>
                         <div class="bg-gradient-to-br from-green-600 to-emerald-600 p-4 rounded-xl text-center">
@@ -1582,7 +1711,37 @@
                         🔥 BUILDING THE INFRASTRUCTURE OF HUMAN CIVILIZATION 🔥
             </div>
                     <div class="text-sm text-gray-400">
-                        The most ambitious venture studio in human history
+                        Building practical solutions for real-world problems
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- REAL-WORLD APPLICATIONS SECTION -->
+        <div class="mt-16 text-center bg-gradient-to-r from-gray-900/90 to-black/90 p-12 rounded-3xl border-2 border-green-500/50 shadow-2xl relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-green-600/10 to-blue-600/10 animate-pulse"></div>
+            <div class="relative z-10">
+                <div class="text-6xl mb-6">🌍</div>
+                <h3 class="text-3xl md:text-4xl font-black mb-6 gradient-text">REAL-WORLD APPLICATIONS</h3>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Our projects solve actual problems that businesses and individuals face every day
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div class="bg-gradient-to-br from-blue-600/30 to-cyan-600/30 p-6 rounded-xl border border-blue-400/30">
+                        <div class="text-3xl mb-3">🏥</div>
+                        <h4 class="text-lg font-black text-white mb-2">Healthcare</h4>
+                        <p class="text-sm text-gray-300">Patient management, appointment scheduling, and medical record systems</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-600/30 to-emerald-600/30 p-6 rounded-xl border border-green-400/30">
+                        <div class="text-3xl mb-3">🏭</div>
+                        <h4 class="text-lg font-black text-white mb-2">Manufacturing</h4>
+                        <p class="text-sm text-gray-300">Production tracking, inventory management, and quality control</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-600/30 to-pink-600/30 p-6 rounded-xl border border-purple-400/30">
+                        <div class="text-3xl mb-3">🎓</div>
+                        <h4 class="text-lg font-black text-white mb-2">Education</h4>
+                        <p class="text-sm text-gray-300">Student portals, course management, and administrative systems</p>
                     </div>
                 </div>
             </div>
@@ -1604,7 +1763,7 @@
                     <span class="text-white">ROADMAP</span>
                 </h2>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8">
-                    🎯 Strategic rollout of 20+ revolutionary companies across multiple waves, each building on the success of the previous.
+                    🎯 Strategic rollout of 3 revolutionary projects across multiple phases, each building on the success of the previous.
                 </p>
             </div>
             
@@ -1614,95 +1773,41 @@
                 <div class="relative">
                     <div class="flex items-center mb-8">
                         <div class="bg-gradient-to-r from-red-600 to-orange-600 text-white px-6 py-3 rounded-full font-black text-lg mr-6">
-                            PHASE 1 • Q2-Q4 2024
+                            PHASE 1 • CURRENT • SEPTEMBER 2025
                         </div>
                         <div class="flex-1 h-1 bg-gradient-to-r from-red-600 to-orange-600 opacity-30"></div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div class="bg-gradient-to-br from-red-900/50 to-orange-900/50 p-6 rounded-xl border border-red-500/30">
-                            <div class="text-3xl mb-3">🛡️</div>
-                            <h4 class="text-lg font-black text-white mb-2">AI Trust & Safety</h4>
-                            <p class="text-sm text-gray-300">Core AI defense platform launching first to establish security foundation for entire ecosystem.</p>
+                            <div class="text-3xl mb-3">🤖</div>
+                            <h4 class="text-lg font-black text-white mb-2">Zyra AI</h4>
+                            <p class="text-sm text-gray-300">AI life assistant platform launching first to establish AI foundation for entire ecosystem.</p>
                         </div>
                         <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 p-6 rounded-xl border border-purple-500/30">
-                            <div class="text-3xl mb-3">👤</div>
-                            <h4 class="text-lg font-black text-white mb-2">Digital Identity Suite</h4>
-                            <p class="text-sm text-gray-300">Privacy infrastructure enabling secure operations across all other startups.</p>
+                            <div class="text-3xl mb-3">🏢</div>
+                            <h4 class="text-lg font-black text-white mb-2">UMS Platform</h4>
+                            <p class="text-sm text-gray-300">Universal platform for building domain-specific applications across healthcare, workshops, education, and more.</p>
                         </div>
-                        <div class="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 p-6 rounded-xl border border-blue-500/30">
-                            <div class="text-3xl mb-3">🕸️</div>
-                            <h4 class="text-lg font-black text-white mb-2">Cyber Defense Platform</h4>
-                            <p class="text-sm text-gray-300">Autonomous threat hunting protecting the entire ecosystem infrastructure.</p>
+                        <div class="bg-gradient-to-br from-blue-900/50 to-cyan-500/50 p-6 rounded-xl border border-blue-500/30">
+                            <div class="text-3xl mb-3">🎛️</div>
+                            <h4 class="text-lg font-black text-white mb-2">CC Platform</h4>
+                            <p class="text-sm text-gray-300">Centralized control system managing and monitoring all operations.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Phase 2: Expansion -->
+                <!-- Future Phases - To Be Defined -->
                 <div class="relative">
                     <div class="flex items-center mb-8">
-                        <div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-full font-black text-lg mr-6">
-                            PHASE 2 • 2025
+                        <div class="bg-gradient-to-r from-gray-600 to-blue-600 text-white px-6 py-3 rounded-full font-black text-lg mr-6">
+                            FUTURE PHASES • TBD
                         </div>
-                        <div class="flex-1 h-1 bg-gradient-to-r from-green-600 to-emerald-600 opacity-30"></div>
+                        <div class="flex-1 h-1 bg-gradient-to-r from-gray-600 to-blue-600 opacity-30"></div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <div class="bg-gradient-to-br from-green-900/50 to-emerald-900/50 p-6 rounded-xl border border-green-500/30">
-                            <div class="text-3xl mb-3">💰</div>
-                            <h4 class="text-lg font-black text-white mb-2">Fintech Security</h4>
-                            <p class="text-sm text-gray-300">Financial infrastructure powering ecosystem monetization.</p>
-                        </div>
-                        <div class="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 p-6 rounded-xl border border-indigo-500/30">
-                            <div class="text-3xl mb-3">🧠</div>
-                            <h4 class="text-lg font-black text-white mb-2">Mental Health AI</h4>
-                            <p class="text-sm text-gray-300">Supporting ecosystem team wellness at scale.</p>
-                        </div>
-                        <div class="bg-gradient-to-br from-yellow-900/50 to-orange-900/50 p-6 rounded-xl border border-yellow-500/30">
-                            <div class="text-3xl mb-3">🌱</div>
-                            <h4 class="text-lg font-black text-white mb-2">ClimateTech Platform</h4>
-                            <p class="text-sm text-gray-300">Environmental solutions for sustainable operations.</p>
-                        </div>
-                        <div class="bg-gradient-to-br from-teal-900/50 to-cyan-900/50 p-6 rounded-xl border border-teal-500/30">
-                            <div class="text-3xl mb-3">🎓</div>
-                            <h4 class="text-lg font-black text-white mb-2">Education Acceleration</h4>
-                            <p class="text-sm text-gray-300">Training programs for ecosystem talent pipeline.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Phase 3: Domination -->
-                <div class="relative">
-                    <div class="flex items-center mb-8">
-                        <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-black text-lg mr-6">
-                            PHASE 3 • 2026-2027
-                        </div>
-                        <div class="flex-1 h-1 bg-gradient-to-r from-blue-600 to-purple-600 opacity-30"></div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-                        <div class="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 p-6 rounded-xl border border-blue-500/30">
-                            <div class="text-3xl mb-3">🚀</div>
-                            <h4 class="text-lg font-black text-white mb-2">SpaceTech Ops</h4>
-                            <p class="text-sm text-gray-300">Space infrastructure for global expansion.</p>
-                        </div>
-                        <div class="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 p-6 rounded-xl border border-indigo-500/30">
-                            <div class="text-3xl mb-3">⚡</div>
-                            <h4 class="text-lg font-black text-white mb-2">Energy Grid AI</h4>
-                            <p class="text-sm text-gray-300">Powering the global ecosystem infrastructure.</p>
-                        </div>
-                        <div class="bg-gradient-to-br from-yellow-900/50 to-orange-900/50 p-6 rounded-xl border border-yellow-500/30">
-                            <div class="text-3xl mb-3">🌐</div>
-                            <h4 class="text-lg font-black text-white mb-2">Global Mobility</h4>
-                            <p class="text-sm text-gray-300">Transportation control for worldwide operations.</p>
-                        </div>
-                        <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 p-6 rounded-xl border border-purple-500/30">
-                            <div class="text-3xl mb-3">🏛️</div>
-                            <h4 class="text-lg font-black text-white mb-2">Governance AI</h4>
-                            <p class="text-sm text-gray-300">Policy automation for regulatory compliance.</p>
-                        </div>
-                        <div class="bg-gradient-to-br from-rose-900/50 to-pink-900/50 p-6 rounded-xl border border-rose-500/30">
-                            <div class="text-3xl mb-3">🎨</div>
-                            <h4 class="text-lg font-black text-white mb-2">Creator Economy</h4>
-                            <p class="text-sm text-gray-300">Content monetization across all platforms.</p>
-                        </div>
+                    <div class="text-center p-8 bg-gradient-to-br from-gray-900/50 to-blue-900/50 rounded-xl border border-gray-500/30">
+                        <div class="text-4xl mb-4">🔮</div>
+                        <h4 class="text-xl font-black text-white mb-2">Future Roadmap</h4>
+                        <p class="text-gray-300">Additional phases and projects will be defined based on current project success and market opportunities.</p>
                     </div>
                 </div>
             </div>
@@ -1733,7 +1838,7 @@
                     </div>
                     
                     <div class="text-2xl font-black text-purple-400 animate-pulse">
-                        🔥 THE MOST AGGRESSIVE STARTUP ROLLOUT IN HISTORY 🔥
+                        🔥 BUILDING SOLUTIONS FOR REAL-WORLD PROBLEMS 🔥
                     </div>
                 </div>
             </div>
@@ -1755,7 +1860,7 @@
                     <span class="text-white">BEHIND IT ALL</span>
                 </h2>
                 <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
-                    💥 Meet the mastermind who dared to build 20+ revolutionary startups simultaneously instead of just one.
+                    💥 Meet the mastermind who dared to build revolutionary projects that solve critical problems and create new markets.
                 </p>
             </div>
 
@@ -1770,46 +1875,46 @@
                                 🧠
                             </div>
                             <h3 class="text-3xl font-black text-white mb-2">THE ARCHITECT</h3>
-                            <p class="text-lg text-purple-300 font-bold">Ecosystem Builder • Serial Entrepreneur</p>
+                            <p class="text-lg text-purple-300 font-bold">Innovation Builder • First-Time Entrepreneur</p>
                         </div>
                         
                         <!-- Story Content -->
                         <div class="lg:col-span-2">
                             <div class="space-y-6 text-lg text-gray-300">
                                 <p>
-                                    <span class="text-purple-400 font-bold">"I realized that building one startup at a time was too slow for the challenges humanity faces."</span>
+                                    <span class="text-purple-400 font-bold">"I realized that building one project at a time was too slow for the challenges humanity faces."</span>
                                 </p>
                                 <p>
-                                    After witnessing countless brilliant ideas die in isolation, struggling with the same infrastructure challenges, competing for the same talent, and moving at glacial speed - the vision became clear: What if we could build 20+ revolutionary startups simultaneously?
+                                    After witnessing countless brilliant ideas die in isolation, struggling with the same infrastructure challenges, competing for the same talent, and moving at glacial speed - the vision became clear: What if we could build revolutionary projects that solve critical problems and create new markets?
                                 </p>
                                 <p>
-                                    <span class="text-blue-400 font-bold">"The venture studio model isn't just more efficient - it's the only way to create the systemic change our world desperately needs."</span>
+                                    <span class="text-blue-400 font-bold">"The innovation studio model isn't just more efficient - it's the only way to create the systemic change our world desperately needs."</span>
                                 </p>
                                 <p>
-                                    By sharing infrastructure, cross-pollinating technologies, and building synergistic companies across every critical sector, we can achieve 100X the impact in 1/10th the time.
+                                    By sharing infrastructure, cross-pollinating technologies, and building synergistic projects across multiple sectors, we can achieve significant impact in a shorter time.
                                 </p>
                                 <p>
-                                    <span class="text-cyan-400 font-bold">"We're not just building startups. We're architecting the operating system of human civilization."</span>
+                                    <span class="text-cyan-400 font-bold">"We're not just building projects. We're architecting solutions that solve critical problems."</span>
                                 </p>
                             </div>
                             
                             <!-- Achievement Highlights -->
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                                 <div class="text-center p-4 bg-gradient-to-br from-purple-600/30 to-blue-600/30 rounded-xl border border-purple-400/30">
-                                    <div class="text-2xl font-black text-white">15+</div>
+                                    <div class="text-2xl font-black text-white">2</div>
                                     <div class="text-xs text-gray-300">Years Experience</div>
                                 </div>
                                 <div class="text-center p-4 bg-gradient-to-br from-blue-600/30 to-cyan-600/30 rounded-xl border border-blue-400/30">
-                                    <div class="text-2xl font-black text-white">5+</div>
-                                    <div class="text-xs text-gray-300">Successful Exits</div>
+                                    <div class="text-2xl font-black text-white">1st</div>
+                                    <div class="text-xs text-gray-300">Startup Venture</div>
                                 </div>
                                 <div class="text-center p-4 bg-gradient-to-br from-green-600/30 to-emerald-600/30 rounded-xl border border-green-400/30">
-                                    <div class="text-2xl font-black text-white">$2B+</div>
-                                    <div class="text-xs text-gray-300">Value Created</div>
+                                    <div class="text-2xl font-black text-white">∞</div>
+                                    <div class="text-xs text-gray-300">Growth Potential</div>
                                 </div>
                                 <div class="text-center p-4 bg-gradient-to-br from-red-600/30 to-orange-600/30 rounded-xl border border-red-400/30">
-                                    <div class="text-2xl font-black text-white">∞</div>
-                                    <div class="text-xs text-gray-300">Vision Scale</div>
+                                    <div class="text-2xl font-black text-white">🎯</div>
+                                    <div class="text-xs text-gray-300">Focused Vision</div>
                                 </div>
                             </div>
                         </div>
@@ -1823,14 +1928,14 @@
                     <h3 class="text-3xl font-black mb-6 gradient-text">THE PHILOSOPHY</h3>
                     <div class="text-xl text-gray-300 space-y-4">
                         <p>
-                            <span class="text-purple-400 font-bold">"Why build one unicorn when you can build an entire ecosystem of world-changing companies?"</span>
+                            <span class="text-purple-400 font-bold">"Why build one solution when you can build multiple projects that solve critical problems?"</span>
                         </p>
                         <p>
-                            Traditional venture capital is broken. It's too slow, too fragmented, and too focused on incremental improvements. The CBYUS ecosystem represents a paradigm shift: 
-                            <span class="text-cyan-400 font-bold">parallel innovation across every sector that matters.</span>
+                            Traditional development approaches are too slow and fragmented. Our innovation studio represents a new approach: 
+                            <span class="text-cyan-400 font-bold">focused innovation across multiple sectors that matter.</span>
                         </p>
                         <p>
-                            <span class="text-yellow-400 font-bold">"We're not just building the future. We're building the infrastructure that makes the future inevitable."</span>
+                            <span class="text-yellow-400 font-bold">"We're building solutions that address real challenges and create new opportunities."</span>
                         </p>
                     </div>
                 </div>
@@ -1863,7 +1968,7 @@
                     <div class="text-6xl mb-6 group-hover:animate-bounce">🏭</div>
                     <h3 class="text-3xl font-black mb-4 text-white">THE ECOSYSTEM VISION</h3>
                     <p class="text-gray-300 text-lg mb-4">
-                        We realized that building one startup at a time was too slow for the challenges humanity faces. So we created the ultimate venture studio: 20+ startups launching simultaneously across every critical sector.
+                        We realized that building one project at a time was too slow for the challenges humanity faces. So we created an innovation studio: 3 revolutionary projects launching across multiple critical sectors.
                     </p>
                     <p class="text-gray-300 text-lg">
                         Each startup leverages shared infrastructure, cross-pollinating technologies, and multiplying innovation velocity by 100x.
@@ -1890,21 +1995,21 @@
                 <div class="text-7xl mb-6 animate-pulse">🏭</div>
                 <h3 class="text-4xl font-black mb-6 gradient-text">THE ECOSYSTEM ENGINE</h3>
                                     <p class="text-xl text-gray-300 mb-8 max-w-4xl mx-auto">
-                    We've assembled the ultimate venture studio machine: serial entrepreneurs, domain experts, and world-class engineers working across 20+ startups simultaneously.
+                    We've assembled an innovation studio: serial entrepreneurs, domain experts, and world-class engineers working across 3 revolutionary projects.
                     </p>
                 
                 <!-- Ecosystem Stats -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                     <div class="text-center p-4 bg-gradient-to-br from-purple-600/30 to-blue-600/30 rounded-xl backdrop-blur-sm border border-purple-400/30">
-                        <div class="text-3xl font-black gradient-text">20+</div>
-                        <div class="text-sm text-gray-300 font-medium">Parallel Startups</div>
+                        <div class="text-3xl font-black gradient-text">3</div>
+                        <div class="text-sm text-gray-300 font-medium">Revolutionary Projects</div>
                     </div>
                     <div class="text-center p-4 bg-gradient-to-br from-blue-600/30 to-cyan-600/30 rounded-xl backdrop-blur-sm border border-blue-400/30">
                         <div class="text-3xl font-black gradient-text">9</div>
                         <div class="text-sm text-gray-300 font-medium">Critical Sectors</div>
                     </div>
                     <div class="text-center p-4 bg-gradient-to-br from-green-600/30 to-emerald-600/30 rounded-xl backdrop-blur-sm border border-green-400/30">
-                        <div class="text-3xl font-black gradient-text">$15T+</div>
+                        <div class="text-3xl font-black gradient-text">$1T+</div>
                         <div class="text-sm text-gray-300 font-medium">Market Opportunity</div>
                     </div>
                     <div class="text-center p-4 bg-gradient-to-br from-red-600/30 to-orange-600/30 rounded-xl backdrop-blur-sm border border-red-400/30">
@@ -2080,14 +2185,14 @@
             const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             
             if (!isMobile) {
-                createMatrixRain();
+                createCleanBackground();
                 createParticleSystem();
                 initializeMouseTracker();
                 addInsaneInteractions();
                 initializeNavbarEffects();
             } else {
-                // Lighter effects for mobile
-                createLightMatrixRain();
+                // Clean background for mobile
+                createCleanBackground();
             }
             
             addScrollAnimations();
@@ -2136,69 +2241,91 @@
             });
         }
         
-        // INSANE MOUSE TRACKER
+        // SIMPLE MOUSE TRACKER - DISABLED INTENSIVE EFFECTS
         function initializeMouseTracker() {
             const mouseTracker = document.getElementById('mouseTracker');
             
-            document.addEventListener('mousemove', (e) => {
-                const x = e.clientX - 150; // Center the tracker
-                const y = e.clientY - 150;
-                
-                mouseTracker.style.left = x + 'px';
-                mouseTracker.style.top = y + 'px';
-                
-                // Add random color changes
-                if (Math.random() < 0.1) {
-                    const colors = [
-                        'rgba(138, 43, 226, 0.1)',
-                        'rgba(0, 191, 255, 0.1)',
-                        'rgba(255, 20, 147, 0.1)',
-                        'rgba(50, 255, 50, 0.1)'
-                    ];
-                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                    mouseTracker.style.background = `radial-gradient(circle, ${randomColor} 0%, transparent 70%)`;
-                }
-            });
+            // Disabled intensive mouse tracking to prevent performance issues
+            console.log('Mouse tracker initialized (intensive effects disabled)');
         }
         
         // INSANE INTERACTIONS
         function addInsaneInteractions() {
-            // Add crazy hover effects to all cards
+            // Simple hover effects for cards
             document.querySelectorAll('.card-3d').forEach(card => {
                 card.addEventListener('mouseenter', () => {
-                    // Random rotation and glow
-                    const randomRotateY = (Math.random() - 0.5) * 30;
-                    const randomRotateX = (Math.random() - 0.5) * 20;
-                    card.style.transform = `perspective(1000px) rotateY(${randomRotateY}deg) rotateX(${randomRotateX}deg) translateZ(50px)`;
-                    
-                    // Random glow color
-                    const glowColors = ['rgba(138, 43, 226, 0.6)', 'rgba(0, 191, 255, 0.6)', 'rgba(255, 20, 147, 0.6)'];
-                    const randomGlow = glowColors[Math.floor(Math.random() * glowColors.length)];
-                    card.style.boxShadow = `0 20px 50px ${randomGlow}, 0 0 100px ${randomGlow}`;
+                    card.style.transform = 'scale(1.02)';
                 });
                 
                 card.addEventListener('mouseleave', () => {
-                    card.style.transform = '';
-                    card.style.boxShadow = '';
+                    card.style.transform = 'scale(1)';
                 });
             });
             
-            // Add screen shake on button clicks
-            document.querySelectorAll('.energy-button').forEach(button => {
-                button.addEventListener('click', () => {
-                    document.body.style.animation = 'screen-shake 0.5s ease-in-out';
-                    setTimeout(() => {
-                        document.body.style.animation = '';
-                    }, 500);
+            // Disabled screen shake to prevent performance issues
+            
+            // Disabled random particle bursts to prevent performance issues
+        }
+        
+        // NEW: Add incredible interactive effects
+        initInteractiveEffects();
+        initTextScramble();
+        
+        // SIMPLE INTERACTIVE EFFECTS - DISABLED INTENSIVE EFFECTS
+        function initInteractiveEffects() {
+            // Disabled intensive mouse tracking and particle effects to prevent performance issues
+            console.log('Interactive effects initialized (intensive effects disabled)');
+            
+            // Simple hover effects only
+            const cards = document.querySelectorAll('.hover-3d');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.zIndex = '10';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.zIndex = '1';
                 });
             });
+        }
+        
+        // Create floating particles on click
+        function createFloatingParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.position = 'fixed';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '9999';
+            particle.style.fontSize = '20px';
+            particle.style.color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+            particle.style.textShadow = '0 0 10px currentColor';
+            particle.style.transition = 'all 1s ease-out';
+            particle.style.transform = 'scale(0)';
             
-            // Add random particle bursts
-            setInterval(() => {
-                if (Math.random() < 0.3) {
-                    createParticleBurst();
-                }
-            }, 3000);
+            const emojis = ['🚀', '⚡', '💎', '🔥', '🌟', '💫', '✨', '🎯'];
+            particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            document.body.appendChild(particle);
+            
+            // Animate particle
+            setTimeout(() => {
+                particle.style.transform = 'scale(1) translateY(-100px)';
+                particle.style.opacity = '0';
+            }, 10);
+            
+            // Remove particle after animation
+            setTimeout(() => {
+                document.body.removeChild(particle);
+            }, 1000);
+        }
+        
+        // Add text scramble effect
+        // TEXT EFFECTS - DISABLED TO PREVENT FLICKERING
+        function initTextScramble() {
+            // Text scramble effect disabled to prevent unwanted characters
+            console.log('Text scramble effects disabled');
         }
         
         // PARTICLE BURST EFFECT
@@ -2260,68 +2387,16 @@
             }, 2000);
         }
         
-        // LIGHTER MATRIX RAIN FOR MOBILE
-        function createLightMatrixRain() {
-            const matrixContainer = document.getElementById('matrixContainer');
-            const characters = '01';
-            
-            // Only 5 columns for mobile
-            for (let i = 0; i < 5; i++) {
-                createMatrixColumn(i * (window.innerWidth / 5));
-            }
-            
-            function createMatrixColumn(x) {
-                const column = document.createElement('div');
-                column.className = 'matrix-column';
-                column.style.left = x + 'px';
-                column.style.animationDuration = (Math.random() * 4 + 3) + 's';
-                column.style.animationDelay = Math.random() * 3 + 's';
-                column.style.fontSize = '10px';
-                
-                let text = '';
-                for (let i = 0; i < Math.random() * 10 + 5; i++) {
-                    text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
-                }
-                column.innerHTML = text;
-                
-                matrixContainer.appendChild(column);
-                
-                setTimeout(() => {
-                    column.remove();
-                    createMatrixColumn(x);
-                }, (Math.random() * 4 + 3) * 1000);
-            }
+        // CLEAN BACKGROUND FOR MOBILE
+        function createCleanBackground() {
+            // No dynamic character generation - just static background
+            console.log('Clean background initialized');
         }
         
-        // MATRIX RAIN EFFECT
-        function createMatrixRain() {
-            const matrixContainer = document.getElementById('matrixContainer');
-            const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-            
-            for (let i = 0; i < 20; i++) {
-                createMatrixColumn(i * (window.innerWidth / 20));
-            }
-            
-            function createMatrixColumn(x) {
-                const column = document.createElement('div');
-                column.className = 'matrix-column';
-                column.style.left = x + 'px';
-                column.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                column.style.animationDelay = Math.random() * 2 + 's';
-                
-                let text = '';
-                for (let i = 0; i < Math.random() * 20 + 10; i++) {
-                    text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
-                }
-                column.innerHTML = text;
-                
-                matrixContainer.appendChild(column);
-                
-                setTimeout(() => {
-                    column.remove();
-                    createMatrixColumn(x);
-                }, (Math.random() * 3 + 2) * 1000);
-            }
+        // CLEAN BACKGROUND EFFECT
+        function createCleanBackground() {
+            // No dynamic character generation - just static background
+            console.log('Clean background initialized');
         }
         
         // PARTICLE SYSTEM
@@ -2330,10 +2405,10 @@
             const codeElements = ['{ }', '< />', '01', '11', 'AI', 'ML', 'SEC', 'DEV', '🔐', '⚡', '🚀', '💻', '🔥'];
             
             setInterval(() => {
-                if (Math.random() < 0.3) {
+                if (Math.random() < 0.1) { // Reduced from 0.3 to 0.1
                     createParticle();
                 }
-            }, 1000);
+            }, 2000); // Increased from 1000ms to 2000ms
             
             function createParticle() {
                 const particle = document.createElement('div');
@@ -2350,7 +2425,7 @@
                 
                 setTimeout(() => {
                     particle.remove();
-                }, 15000);
+                }, 8000); // Reduced from 15000ms to 8000ms
             }
         }
         
